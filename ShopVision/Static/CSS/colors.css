@@ -1,0 +1,81 @@
+.lightblue{
+    background-color: #939CC1;
+}
+
+.purple {
+    background-color: #9669FE;
+}
+
+.pink {
+    background-color: #FF62B0;
+}
+
+.dullpurple {
+    background-color: #7F525D;
+}
+
+.gunmetal {
+    background-color: #2C3539;
+}
+
+.brown {
+    background-color: #7E3817;
+}
+
+.orange {
+    background-color: #F87217;
+    color: black;
+}
+
+.salmon {
+    background-color: #C47451;
+}
+
+.transparent {
+    background: transparent;
+}
+
+.white {
+    background-color: #EBF4FA;
+    color: black;
+}
+
+.test {
+    background-color: #D1D0CE;
+    color: black;
+}
+
+.yellow{
+    background-color:#DAA520;
+    color: black;
+}
+
+.farrari {
+    background-color: #F70D1A;
+}
+
+.red{
+    background-color:#CD0000;
+}
+
+.slate {
+    background-color: #25383C;
+}
+
+.blue{
+    /* background-color:#4682B4; */
+    background-color: rgba(70, 130, 180, 0.8);
+}
+
+.green{
+    background-color: #2E8B57;
+}
+
+.gray {
+    /* background-color: #464041; */
+    background-color: rgba(70, 64, 65, 0.8);
+}
+
+.darkgray {
+    background-color: #2B1B17;
+}

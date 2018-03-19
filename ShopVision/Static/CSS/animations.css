@@ -1,0 +1,135 @@
+.weather_alert {
+  animation: weatheralert 5s infinite linear;
+}
+
+.rotate {  
+  animation: rotate 0.1s infinite linear;
+}
+
+@keyframes weatheralert {
+  10%  {
+    color: #FFFFFF;
+    }
+  
+  50%  {    
+    color: #FF0000;
+    } 
+   
+  90%  {
+    color: #FFFFFF;
+    }
+}
+
+@keyframes rotate {
+  0%  {
+    transform:scale(1) rotate(0deg);
+    }
+
+  25%  {
+    }
+
+  50%  { 
+    
+    } 
+
+  75%  {
+    } 
+    
+  100%  {    
+    transform:scale(1) rotate(360deg);
+    }
+}
+
+
+.zoomin {
+    animation: zoomin 0.75s 1 linear;
+}
+
+@keyframes zoomin {
+  0%  {
+    transform:scale(0);
+    }
+
+  25%  {
+    }
+  50%  {
+    transform:scale(0.25);
+    } 
+  75%  {
+    } 
+  100%  {
+    transform:scale(1);
+    }
+}
+
+.bounce {
+    animation: bounce 2s infinite linear;
+}
+
+@keyframes bounce {
+  0%  {
+    transform:scale(1);
+    }
+
+  25%  {
+    }
+  50%  {
+    transform:scale(0.96);
+    } 
+  75%  {
+    } 
+  100%  {
+    transform:scale(1);
+    }
+}
+
+.bouncerotate {
+    animation: bouncerotate 3s infinite linear;
+}
+
+@keyframes bouncerotate {
+  0%  {
+    transform:scale(1) rotate(5deg);
+    }
+  50%  {
+    transform:scale(0.8) rotate(-5deg);
+    } 
+  100%  {
+    transform:scale(1) rotate(5deg);
+    }
+}
+
+.blink {
+  /*animation: blink .5s infinite linear;  */
+}
+
+@keyframes blink {
+  0%  {
+    color: rgba(255,255,255,1); 
+    }
+
+  25%  {
+    color: rgba(255,255,255,1); 
+    }
+  50%  {
+    color: rgba(255,255,255,0); 
+    } 
+  75%  {
+    color: rgba(255,255,255,1); 
+    } 
+  100%  {
+    color: rgba(255,255,255,1); 
+    }
+}
+
+@keyframes rotateplane {
+  0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg) }
+  50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) }
+  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg) }
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}

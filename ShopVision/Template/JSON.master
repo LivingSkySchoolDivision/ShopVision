@@ -1,0 +1,3 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="JSON.master.cs" Inherits="ShopVision.Template.JSON" %>
+<asp:ContentPlaceHolder ID="content" runat="server">
+</asp:ContentPlaceHolder>

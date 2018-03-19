@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace ShopVision.Helpers
+namespace ShopVision
 {
     public static class Helpers
     {
@@ -181,6 +181,11 @@ namespace ShopVision.Helpers
             }
 
             return returnMe;
+        }
+
+        public static string escapeCharacters(string input)
+        {
+            return input.Replace('"', '\'').Replace("\r\n", " ").Replace("\n", " ").Replace("\\", "\\\\");
         }
 
         public static string SanitizeForJSON(string inputString)

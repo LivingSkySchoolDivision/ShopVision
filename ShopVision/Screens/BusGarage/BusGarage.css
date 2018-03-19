@@ -1,0 +1,350 @@
+﻿@import 'https://fonts.googleapis.com/css?family=Days+One|Montserrat|Squada+One|Rubik|Droid+Sans|Source+Code+Pro|VT323|Share+Tech+Mono';
+
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: black;
+    ;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+}
+
+#curtain_black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    background-color: rgba(0,0,0,1);
+    z-index: 990;
+    font-size: 100pt;
+}
+
+#curtain_dim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    background-color: rgba(0,0,0,0.95);
+    z-index: 999;
+    font-size: 100pt;
+}
+
+.header_container {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.transportation_page_container {
+    width: 1280px;
+    height: 720px;
+    /*padding: 10px;*/
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background: rgb(53, 56, 101);
+}
+
+.content_table {
+    width: 100%;
+}
+
+.tile_number {
+    font-size: 110pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+}
+
+.tile_number_smaller {
+    font-size: 50pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 10px;
+}
+
+.fullheight {
+    height: 100%;
+}
+
+.tile_content_container {
+    text-align: center;
+    position: relative;
+    margin: auto auto auto auto;
+    padding: 20px;
+}
+
+.tile_subtext {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.tile_subtext_larger {
+    font-size: 14pt;
+}
+
+.leftalign {
+    text-align: left;
+}
+
+.loading {
+    color: white;
+    font-size: 10pt;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+}
+
+#ip_address {
+    text-align: right;
+    color: #454040;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#time_main {
+    display: inline;
+}
+
+#time_second {
+    /*display: inline;*/
+    display: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+}
+
+
+
+
+#weather_detail_icon {
+}
+
+#current_date {
+    font-size: 32pt;
+    margin-left: 10px;
+    text-align: center;
+    width: 768px;
+    font-weight: bold;
+}
+
+#current_time {
+    font-size: 38pt;
+    text-align: center;
+    width: 256px;
+    font-weight: bold;
+}
+
+#current_weather {
+    width: 250px;
+    font-weight: bold;
+}
+
+#weather_temp {
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+#weather_detail_description {
+    font-size: 12pt;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#Chart_TicketsByMonth {
+    width: 300px;
+    height: 250px;
+}
+
+.textmessage_content {
+    font-size: 40pt;
+}
+
+.textmessage_time {
+    font-size: 20pt;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.transportation_title {
+    font-size: 30pt;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.inspection_text {
+    font-size: 25pt;
+}
+
+.warning {
+    animation: fadeorange 3s infinite linear;
+    color: white;
+    border: 3px solid #FF6400;
+}
+
+.critical {
+    animation: fadered 3s infinite linear;
+    color: white;
+    border: 3px solid red;
+}
+
+@keyframes fadered {
+    0% {
+        background-color: #AA0114;
+    }
+
+    25% {
+    }
+
+    50% {
+        background-color: #FF0000;
+    }
+
+    75% {
+    }
+
+    100% {
+        background-color: #AA0114;
+    }
+}
+
+@keyframes fadeorange {
+    0% {
+        background-color: #FFAA73;
+    }
+
+    25% {
+    }
+
+    50% {
+        background-color: #FF6400;
+    }
+
+    75% {
+    }
+
+    100% {
+        background-color: #FFAA73;
+    }
+}
+
+#workOrders_HighPriority td {
+    font-size: 18pt;
+    vertical-align: top;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#workOrders_HighPriority {
+    margin-top: 0;
+}
+
+#workOrders_OtherPriority {
+    margin-top: 0;
+}
+
+    #workOrders_OtherPriority td {
+        font-size: 18pt;
+        vertical-align: top;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+.high_priority_wo_name {
+    background-color: rgba(200,0,0,1);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.other_priority_wo_name {
+    border: 2px solid white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.wo_ID {
+    font-size: 24pt;
+    color: rgb(53, 56, 101);
+    background-color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    width: 75px;
+    padding: 3px;
+}
+
+.wo_priority {
+    font-size: 10pt;
+    /*background-color: rgba(255,255,255,0.8);*/
+    text-align: center;
+    height: 15px;
+}
+
+.wo_Content {
+    padding-left: 10pt;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.wo_content_font_small {
+    font-size: 16pt;
+}
+
+.wo_content_font_normal {
+    font-size: 20pt;
+}
+
+#sgi_insepections_list {
+    text-wrap: normal;
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.sgi_inspection_overdue {
+    background-color: rgba(255,0,0,0.5);
+    border: 5px solid red;
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+.sgi_inspection_normal {
+    display: inline-block;
+    padding: 5px;
+    border: 5px solid rgba(255,255,255,1);
+    background-color: rgba(255,255,255,0.8);
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: rgb(53, 56, 101);
+    text-align: center;
+}
+
+.sgi_big_text {
+    font-size: 100pt;
+    min-width: 100px;
+}
+
+.sgi_medium_text {
+    font-size: 50pt;
+    min-width: 80px;
+}

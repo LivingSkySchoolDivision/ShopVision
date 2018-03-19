@@ -67,6 +67,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="JSON\FleetVision\NewestWorkOrders.aspx" />
+    <Content Include="JSON\FleetVision\WorkOrderCounts.aspx" />
+    <Content Include="JSON\JSONTime.aspx" />
+    <Content Include="JSON\Versatrans\UpcomingBusInspections.aspx" />
+    <Content Include="Proxy\JSON.aspx" />
+    <Content Include="Static\CSS\animations.css" />
+    <Content Include="Screens\BusGarage\BusGarage.css" />
+    <Content Include="Screens\BusGarage\BusGarage.js" />
+    <Content Include="Screens\BusGarage\BusGarage_AutoStart.js" />
+    <Content Include="Screens\BusGarage\index.html" />
+    <Content Include="Static\CSS\colors.css" />
+    <Content Include="Static\JS\dateandtimehandlers.js" />
+    <Content Include="Static\JS\emoticons.js" />
+    <Content Include="Static\JS\helpers.js" />
+    <Content Include="Static\JS\jquery-1.10.2.js" />
+    <Content Include="Static\JS\weather.js" />
+    <Content Include="Template\JSON.master" />
+    <Content Include="Template\Protected.master" />
+    <Content Include="Template\Unprotected.master" />
+    <Content Include="Template\TVScreen.Master" />
+    <None Include="Properties\PublishProfiles\Dashboard Server.pubxml" />
     <None Include="Web.config.Debug.template">
       <DependentUpon>Web.config.template</DependentUpon>
     </None>
@@ -78,6 +99,7 @@
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Crypto.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\Parsers.cs" />
     <Compile Include="Helpers\Settings.cs" />
@@ -88,18 +110,84 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JSON\FleetVision\NewestWorkOrders.aspx.cs">
+      <DependentUpon>NewestWorkOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\FleetVision\NewestWorkOrders.aspx.designer.cs">
+      <DependentUpon>NewestWorkOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JSON\FleetVision\WorkOrderCounts.aspx.cs">
+      <DependentUpon>WorkOrderCounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\FleetVision\WorkOrderCounts.aspx.designer.cs">
+      <DependentUpon>WorkOrderCounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JSON\JSONTime.aspx.cs">
+      <DependentUpon>JSONTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\JSONTime.aspx.designer.cs">
+      <DependentUpon>JSONTime.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JSON\Versatrans\UpcomingBusInspections.aspx.cs">
+      <DependentUpon>UpcomingBusInspections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\Versatrans\UpcomingBusInspections.aspx.designer.cs">
+      <DependentUpon>UpcomingBusInspections.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\FleetVision\FleetVisionVehicle.cs" />
     <Compile Include="Model\FleetVision\FleetVisionWorkOrder.cs" />
     <Compile Include="Model\Versatrans\VersaTransCertification.cs" />
     <Compile Include="Model\Versatrans\VersaTransEmployee.cs" />
     <Compile Include="Model\Versatrans\VersaTransVehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\CachedWebRequest.cs" />
+    <Compile Include="Proxy\JSON.aspx.cs">
+      <DependentUpon>JSON.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proxy\JSON.aspx.designer.cs">
+      <DependentUpon>JSON.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\FleetVision\FleetVisionVehicleRepository.cs" />
+    <Compile Include="Repositories\FleetVision\FleetVisionWorkOrderRepository.cs" />
+    <Compile Include="Repositories\Versatrans\VersaTransCertificationRepository.cs" />
+    <Compile Include="Repositories\Versatrans\VersaTransEmployeeRepository.cs" />
+    <Compile Include="Repositories\Versatrans\VersaTransVehicleRepository.cs" />
+    <Compile Include="Template\JSON.master.cs">
+      <DependentUpon>JSON.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\JSON.master.designer.cs">
+      <DependentUpon>JSON.master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\Protected.master.cs">
+      <DependentUpon>Protected.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\Protected.master.designer.cs">
+      <DependentUpon>Protected.master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\TVScreen.Master.cs">
+      <DependentUpon>TVScreen.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\TVScreen.Master.designer.cs">
+      <DependentUpon>TVScreen.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\Unprotected.master.cs">
+      <DependentUpon>Unprotected.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\Unprotected.master.designer.cs">
+      <DependentUpon>Unprotected.master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
-    <Folder Include="JSON\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Screens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.aspx" />

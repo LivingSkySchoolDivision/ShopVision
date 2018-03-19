@@ -1,0 +1,153 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Bus Garage TV</title>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="NONE">
+
+    <link rel="stylesheet" href="../../static/css/colors.css" />
+    <link rel="stylesheet" href="../../static/css/animations.css" />
+    <link rel="stylesheet" href="BusGarage.css" />
+    
+    <script type="text/javascript" src="../../Static/JS/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../Static/JS/dateandtimehandlers.js"></script>
+    <script type="text/javascript" src="../../Static/JS/helpers.js"></script>    
+    <script type="text/javascript" src="../../Static/JS/weather.js"></script>
+    <script type="text/javascript" src="BusGarage.js"></script>
+    <script type="text/javascript" src="BusGarage_AutoStart.js"></script>
+
+
+</head>
+<body id="body_transport">
+    <!-- colored bars for sizing on a 1080p TV screen -->
+    <!--<div style="height: 2px; width: 1280px; background-color: red;position: absolute; top: 0; left: 0;"></div>
+    <div style="width: 2px; height: 720px; background-color: red;position: absolute; top: 0; left: 0;"></div>-->
+    <div id="curtain_black"></div>
+    <div id="curtain_dim" style="display: none;"></div>
+    <div class="transportation_page_container ">
+        <div class="header_container ">
+            <table align="center" border=0 cellpadding=0 style="width: 100%;">
+                <tr>
+                    <td class="titlebar" id="titlebar_1">
+                        <div id="current_date"><div class="loading blink">LOADING</div></div>
+                    </td>
+                    <td class="titlebar" id="titlebar_2">
+                        <div id="current_time"><div class="loading blink">LOADING</div></div>
+                    </td>
+
+                    <td id="weather_tile" class="titlebar" id="titlebar_3">
+                        <div id="current_weather">
+                            <table style="width: 100%;" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
+                                <tr>
+                                    <td width="50%" align="center">
+                                        <div id="weather_temp"></div>
+                                    </td>
+                                    <td width="50%" align="center" valign="top" id="weather_detail">
+                                        <div id="weather_detail_icon"></div>
+                                        <div id="weather_detail_description"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="font-size: 8pt; color: rgba(255,255,255,0.2); position: absolute; bottom: 0; right: 0; z-index: 999" id="page_name"></div>
+        <div ID="workorders_page_1">
+            <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+                <tr>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Left column -->
+                            <table id="workOrders_1" border=0 style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Right column -->
+                            <table id="workOrders_2" style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div ID="workorders_page_2" style="display: none;">
+            <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+                <tr>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Left column -->
+                            <table id="workOrders_3" style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Right column -->
+                            <table id="workOrders_4" style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div ID="workorders_page_3" style="display: none;">
+            <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+                <tr>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Left column -->
+                            <table id="workOrders_5" style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                    <td width="50%" style="vertical-align: top;">
+                        <div style="padding: 10px">
+                            <!-- Right column -->
+                            <table id="workOrders_6" style="width: 100%">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div ID="inspections_page" style="display: none;">
+            <div style="text-align: left; padding: 30px;">
+                <div class="transportation_title">SGI Inspections due <div style="display: inline;" id="month_name"></div></div>
+                <br />
+                <div id="sgi_insepections_list"></div>
+            </div>
+        </div>
+
+        <div ID="inspections_page_2" style="display: none;">
+            <div style="text-align: left; padding: 30px;">
+                <div class="transportation_title">SGI Inspections due <div style="display: inline;" id="next_month_name"></div></div>
+                <br />
+                <div id="sgi_insepections_list_nextmonth"></div>
+            </div>
+        </div>
+
+        <div ID="text_page" style="display: none;">
+            <div style="text-align: left; padding: 30px;">
+                <div class="textmessage_time">31 minutes ago:</div><br />
+                <div class="textmessage_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan ligula pretium urna finibus, at scelerisque lectus facilisis. Sed cursus dolor nec congue tincidunt. Etiam aliquet, nulla tincidunt pretium tempor, sem dui mollis sapien, id vestibulum turpis nunc non dolor. </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
