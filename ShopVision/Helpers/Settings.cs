@@ -17,5 +17,10 @@ namespace ShopVision
         {
             get { return ConfigurationManager.ConnectionStrings["Versatrans"].ConnectionString; }
         }
+
+        public static string DBConnectionString_ShopVision
+        {
+            get { return ConfigurationManager.ConnectionStrings["ShopVision"].ConnectionString; }
+        }
     }
 }

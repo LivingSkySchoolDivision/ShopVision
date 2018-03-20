@@ -25,6 +25,9 @@
 
     <!-- Credentials for FleetVision database -->
     <add name="Versatrans" connectionString="CONNECTIONSTRINGGOESHERE" providerName="System.Data.SqlClient" />
+    
+    <!-- Credentials for ShopVision database -->
+    <add name="ShopVision" connectionString="CONNECTIONSTRINGGOESHERE" providerName="System.Data.SqlClient" />
   </connectionStrings>
 
 </configuration>
