@@ -13,6 +13,10 @@
         <li><a href="/Screens/BusGarage/">Bus Garage</a></li>
     </ul>
     <h2>JSON</h2>    
+    <ul>
+        <li><a href="/JSON/ShopMessages.aspx">Shop Messages</a></li>
+        <li><a href="/JSON/JSONTime.aspx">Time</a></li>
+    </ul>
     <h3>FleetVision</h3>
     <ul>
         <li><a href="/JSON/FleetVision/NewestWorkOrders.aspx">Newest work orders</a></li>

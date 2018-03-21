@@ -70,6 +70,7 @@
     <Content Include="JSON\FleetVision\NewestWorkOrders.aspx" />
     <Content Include="JSON\FleetVision\WorkOrderCounts.aspx" />
     <Content Include="JSON\JSONTime.aspx" />
+    <Content Include="JSON\ShopMessages.aspx" />
     <Content Include="JSON\Versatrans\UpcomingBusInspections.aspx" />
     <Content Include="Proxy\JSON.aspx" />
     <Content Include="Static\CSS\animations.css" />
@@ -131,6 +132,13 @@
     <Compile Include="JSON\JSONTime.aspx.designer.cs">
       <DependentUpon>JSONTime.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JSON\ShopMessages.aspx.cs">
+      <DependentUpon>ShopMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JSON\ShopMessages.aspx.designer.cs">
+      <DependentUpon>ShopMessages.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JSON\Versatrans\UpcomingBusInspections.aspx.cs">
       <DependentUpon>UpcomingBusInspections.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,6 +148,7 @@
     </Compile>
     <Compile Include="Model\FleetVision\FleetVisionVehicle.cs" />
     <Compile Include="Model\FleetVision\FleetVisionWorkOrder.cs" />
+    <Compile Include="Model\ShopMessage.cs" />
     <Compile Include="Model\Versatrans\VersaTransCertification.cs" />
     <Compile Include="Model\Versatrans\VersaTransEmployee.cs" />
     <Compile Include="Model\Versatrans\VersaTransVehicle.cs" />
@@ -154,6 +163,7 @@
     </Compile>
     <Compile Include="Repositories\FleetVision\FleetVisionVehicleRepository.cs" />
     <Compile Include="Repositories\FleetVision\FleetVisionWorkOrderRepository.cs" />
+    <Compile Include="Repositories\ShopMessageRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransCertificationRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransEmployeeRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransVehicleRepository.cs" />
