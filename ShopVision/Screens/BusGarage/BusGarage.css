@@ -351,6 +351,10 @@ body {
     min-width: 80px;
 }
 
+.sgi_inspections_container {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 #ShopMessageContainer {
     position: absolute;
@@ -359,7 +363,6 @@ body {
     display: grid;
     grid-gap: 5px;
     width: 100%;
-
 }
 
 .ShopMessage {
