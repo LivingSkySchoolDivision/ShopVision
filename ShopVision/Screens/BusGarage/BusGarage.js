@@ -1,6 +1,8 @@
 ﻿var inspectionsThisMonthcount = 0;
 var inspectionsNextMonthCount = 0;
-
+var shopmessagecount = 0; // number of NORMAL importance shop messages. High importance messages are handled elsewhere.
+var highPriorityMessageDivPrefix = "HighPriorityShopMessage_";
+var displayedHighPriorityMessageIDs = []
 
 var workOrderTables = [];
 workOrderTables[0] = "workOrders_1";
@@ -133,7 +135,6 @@ function undim() {
     $("#curtain_dim").fadeOut(5000);
 }
 
-
 function updateSGIInspections() {
     var JSONPath = "/JSON/Versatrans/UpcomingBusInspections.aspx";
 
@@ -179,4 +180,93 @@ function updateSGIInspections() {
 
     });
 
+}
+
+function removeFirstCharacter(str) {
+    return str.substr(1);
+}
+
+function AddToArray(existingarray, newitem) {
+    existingarray.push(newitem);
+}
+
+function ArrayContains(haystack, needle) {
+    for (var x = 0; x < haystack.length; x++) {
+        if (haystack[x] == needle) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function updateShopMessages() {
+    var JSONPath = "/JSON/ShopMessages.aspx";
+
+    console.log("Loading ShopMessages");
+
+    $.getJSON(JSONPath, function (data) {        
+        console.log("Loaded ShopMessages");
+
+        // Normal priority messages - these go on their own page
+        // 
+        $.each(data.Normal, function (index, msg) {
+            console.log("Found normal priority message with ID " + msg.ID);
+            //$("#sgi_insepections_list").append("<div class='sgi_inspection_overdue " + font_style + "'>" + cert.Vehicle + "</div>");
+            //inspectionsThisMonthcount++;
+        });
+
+
+        // Create a list of high priority messages that we know about here
+        // When finished loading, compare the list to the list of messages that we're displaying, and remove any divs that shouldn't be there
+
+        var idsThisTime = [];
+
+        // High priority message - these go on an overlay above all other layers
+        $.each(data.High, function (index, msg) {
+            console.log("Found high priority message with ID " + msg.ID);
+
+            // If a div for this message doesn't already exist, create it
+            var divID = highPriorityMessageDivPrefix + msg.ID;
+            if ($("#" + divID).length <= 0) {
+                console.log("Creating new high priority message with id " + msg.ID);
+                $("#ShopMessageContainer").prepend("<div class='ShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/WarningRed.png' class='ShopMessageIcon' /><div id='ShopMessageContent'>" + msg.Content + "</div></div></div>");
+                // Then fade it in
+                $("#" + divID).fadeIn("slow");
+
+            } else {
+                console.log("High priority message '" + msg.ID + "' already is already displayed, skipping")
+            }
+
+            AddToArray(idsThisTime,msg.ID)
+            
+            //$("#sgi_insepections_list").append("<div class='sgi_inspection_normal " + font_style + "'>" + cert.Vehicle + "</div>");
+            //inspectionsThisMonthcount++;
+        });
+
+        // debug
+        for (var x = 0; x < idsThisTime.length; x++) {
+            console.log("ID displayed at this time: " + idsThisTime[x]);
+        }
+
+        // Clear out any that shouldn't be displayed anymore
+        for (var displayedIndex = 0; displayedIndex < displayedHighPriorityMessageIDs.length; displayedIndex++) {
+            // If this ID isn't in the most recently pulled list, then destroy it's div
+            if (!ArrayContains(idsThisTime, displayedHighPriorityMessageIDs[displayedIndex])) {
+                var divID = highPriorityMessageDivPrefix + displayedHighPriorityMessageIDs[displayedIndex];
+                if ($("#" + divID).length !== 0) {
+                    //$("#" + divID).fadeOut("slow").remove();
+                    $("#" + divID).fadeOut("slow", function () {
+                        $("#" + divID).remove();
+                    });
+                    //$("#" + divID).remove();
+                    console.log("Removing " + divID);
+                }
+            }
+        }
+
+        // update the list of displayed IDs
+        displayedHighPriorityMessageIDs = idsThisTime;
+
+        console.log("Finished with ShopMessages");
+    });
 }

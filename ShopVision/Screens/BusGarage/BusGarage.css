@@ -1,4 +1,6 @@
 ﻿@import 'https://fonts.googleapis.com/css?family=Days+One|Montserrat|Squada+One|Rubik|Droid+Sans|Source+Code+Pro|VT323|Share+Tech+Mono';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
 
 html {
     padding: 0;
@@ -347,4 +349,62 @@ body {
 .sgi_medium_text {
     font-size: 50pt;
     min-width: 80px;
+}
+
+
+#ShopMessageContainer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: grid;
+    grid-gap: 5px;
+    width: 100%;
+
+}
+
+.ShopMessage {
+    border-radius: 20px;
+    border: 5px solid red;
+    background-color: black;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    animation: ShopMessageHighImportance 1s infinite linear;
+}
+
+.ShopMessageIcon {
+    width: 200px;
+    height: 200px;
+    display: inline;
+    float: left;
+    padding: 15px;
+}
+
+#ShopMessageContent {
+    font-size: 6vh;
+    font-family: 'Roboto Condensed', cursive;
+    font-weight: bold;
+    display: inline;
+    padding-right: 25px;
+}
+
+.HighImportance {
+    animation: ShopMessageHighImportance 1s infinite linear;
+}
+
+@keyframes ShopMessageHighImportance {
+    0% {
+        border-color: #FF0000;
+    }
+
+    33% {
+        border-color: #00ff21;
+    }
+
+    66% {
+        border-color: #ffd800;
+    }
 }

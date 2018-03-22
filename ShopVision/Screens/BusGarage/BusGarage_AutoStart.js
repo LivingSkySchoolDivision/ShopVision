@@ -7,6 +7,7 @@ $(document).ready(function () {
     updateWorkOrderLists();
     initPages();
     updateSGIInspections();
+    updateShopMessages();
     // Hide the mouse cursor
     $('body').css('cursor', 'none');
 
@@ -36,6 +37,7 @@ setInterval(function () {
 // Flip the pages
 setInterval(function () {
     cyclePages();
+    updateShopMessages();
 }, 10000);
 
 /* Update weather */

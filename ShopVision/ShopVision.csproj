@@ -79,6 +79,9 @@
     <Content Include="Screens\BusGarage\BusGarage_AutoStart.js" />
     <Content Include="Screens\BusGarage\index.html" />
     <Content Include="Static\CSS\colors.css" />
+    <Content Include="Static\IMG\WarningBlack.png" />
+    <Content Include="Static\IMG\WarningRed.png" />
+    <Content Include="Static\IMG\WarningWhite.png" />
     <Content Include="Static\JS\dateandtimehandlers.js" />
     <Content Include="Static\JS\emoticons.js" />
     <Content Include="Static\JS\helpers.js" />
