@@ -352,20 +352,20 @@ body {
 }
 
 .sgi_inspections_container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
 }
 
-#ShopMessageContainer {
+#HighImportanceShopMessageContainer {
     position: absolute;
     bottom: 0px;
     left: 0px;
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 15px;
     width: 100%;
 }
 
-.ShopMessage {
+.HighImportanceShopMessage {
     border-radius: 20px;
     border: 5px solid red;
     background-color: black;
@@ -378,7 +378,7 @@ body {
     animation: ShopMessageHighImportance 1s infinite linear;
 }
 
-.ShopMessageIcon {
+.HighImportanceShopMessageIcon {
     width: 200px;
     height: 200px;
     display: inline;
@@ -386,7 +386,7 @@ body {
     padding: 15px;
 }
 
-#ShopMessageContent {
+#HighImportanceShopMessageContent {
     font-size: 6vh;
     font-family: 'Roboto Condensed', cursive;
     font-weight: bold;
@@ -410,4 +410,21 @@ body {
     66% {
         border-color: #ffd800;
     }
+}
+
+#ShopMessageContainer {
+}
+
+.ShopMessage {
+    display: block;
+    margin-bottom: 25px;
+    font-size: 30pt;
+}
+
+.ShopMessageInfo {
+    font-weight: bold;
+}
+
+.ShopMessageContent {
+
 }

@@ -1,5 +1,6 @@
 ﻿var inspectionsThisMonthcount = 0;
 var inspectionsNextMonthCount = 0;
+var normalMessagesDisplayed = 0;
 var shopmessagecount = 0; // number of NORMAL importance shop messages. High importance messages are handled elsewhere.
 var highPriorityMessageDivPrefix = "HighPriorityShopMessage_";
 var displayedHighPriorityMessageIDs = []
@@ -62,7 +63,7 @@ pages[1] = "workorders_page_2";
 pages[2] = "workorders_page_3";
 pages[3] = "inspections_page";
 pages[4] = "inspections_page_2";
-//pages[4] = "text_page";
+pages[5] = "text_page";
 
 function cyclePages() {
     var skipEmptyPages = true;
@@ -104,6 +105,14 @@ function cyclePages() {
                     currentPage++;
                 }
             }
+
+            // Skip messages page if there are no messages to display
+            if (currentPage == 5) {
+                if (normalMessagesDisplayed <= 0) {
+                    console.log("No shop messages - skipping page");
+                    currentPage++;
+                }
+            }
         }
         // Wrap around
         if (currentPage >= pages.length) {
@@ -119,7 +128,7 @@ function cyclePages() {
 // Only show page 1
 function initPages() {
 
-    for (x = 1; x <= pages.length; x++) {
+    for (x = 1; x < pages.length; x++) {
         console.log("Hiding " + pages[x])
         $("#" + pages[x]).fadeOut(1);
     }
@@ -207,14 +216,27 @@ function updateShopMessages() {
     $.getJSON(JSONPath, function (data) {        
         console.log("Loaded ShopMessages");
 
+        var normalMessagesFound = 0;
+        
         // Normal priority messages - these go on their own page
         // 
+        if ($("#ShopMessageContainer").length !== 0) {
+            $("#ShopMessageContainer").empty();
+        }
+
         $.each(data.Normal, function (index, msg) {
             console.log("Found normal priority message with ID " + msg.ID);
+            normalMessagesFound++;
+            //ShopMessageContainer
+            if ($("#ShopMessageContainer").length !== 0) {
+                $("#ShopMessageContainer").append("<div class=\"ShopMessage\"><div class=\"ShopMessageInfo\">" + msg.Sender + " (" + msg.CreatedFriendly + ")" + "</div><div class=\"ShopMessageContent\">" + msg.Content + "</div></div>");
+            }
+
             //$("#sgi_insepections_list").append("<div class='sgi_inspection_overdue " + font_style + "'>" + cert.Vehicle + "</div>");
             //inspectionsThisMonthcount++;
         });
 
+        normalMessagesDisplayed = normalMessagesFound;
 
         // Create a list of high priority messages that we know about here
         // When finished loading, compare the list to the list of messages that we're displaying, and remove any divs that shouldn't be there
@@ -229,7 +251,7 @@ function updateShopMessages() {
             var divID = highPriorityMessageDivPrefix + msg.ID;
             if ($("#" + divID).length <= 0) {
                 console.log("Creating new high priority message with id " + msg.ID);
-                $("#ShopMessageContainer").prepend("<div class='ShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/WarningRed.png' class='ShopMessageIcon' /><div id='ShopMessageContent'>" + msg.Content + "</div></div></div>");
+                $("#HighImportanceShopMessageContainer").prepend("<div class='HighImportanceShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/WarningRed.png' class='HighImportanceShopMessageIcon' /><div id='HighImportanceShopMessageContent'>" + msg.Content + "</div></div></div>");
                 // Then fade it in
                 $("#" + divID).fadeIn("slow");
 

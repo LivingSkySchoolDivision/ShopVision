@@ -26,7 +26,8 @@ namespace ShopVision
                 Content = dataReader["MsgContent"].ToString(),
                 Start = Parsers.ParseDate(dataReader["MsgStart"].ToString()),
                 End = Parsers.ParseDate(dataReader["MsgEnd"].ToString()),
-                IsImportant = Parsers.ParseBool(dataReader["HighImportance"].ToString())
+                IsImportant = Parsers.ParseBool(dataReader["HighImportance"].ToString()),
+                Created = Parsers.ParseDate(dataReader["MsgCreated"].ToString())
 
             };
         }

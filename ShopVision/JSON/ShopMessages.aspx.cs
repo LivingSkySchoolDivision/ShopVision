@@ -36,6 +36,8 @@ namespace ShopVision.JSON
                 Response.Write("\"ID\":\"" + msg.ID + "\",\n");
                 Response.Write("\"Sender\":\"" + Helpers.SanitizeForJSON(msg.Sender) + "\",\n");
                 Response.Write("\"Content\":\"" + Helpers.SanitizeForJSON(msg.Content) + "\",\n");
+                Response.Write("\"Created\":\"" + msg.Created + "\",\n");
+                Response.Write("\"CreatedFriendly\":\"" + Helpers.TimeSince(msg.Created) + "\",\n");
                 Response.Write("\"StartTime\":\"" + msg.Start + "\",\n");
                 Response.Write("\"EndTime\":\"" + msg.End + "\",\n");
                 Response.Write("\"IsImportant\":" + msg.IsImportant.ToString().ToLower() + "\n");
@@ -60,6 +62,8 @@ namespace ShopVision.JSON
                 Response.Write("\"ID\":\"" + msg.ID + "\",\n");
                 Response.Write("\"Sender\":\"" + Helpers.SanitizeForJSON(msg.Sender) + "\",\n");
                 Response.Write("\"Content\":\"" + Helpers.SanitizeForJSON(msg.Content) + "\",\n");
+                Response.Write("\"Created\":\"" + msg.Created + "\",\n");
+                Response.Write("\"CreatedFriendly\":\"" + Helpers.TimeSince(msg.Created) + "\",\n");
                 Response.Write("\"StartTime\":\"" + msg.Start + "\",\n");
                 Response.Write("\"EndTime\":\"" + msg.End + "\",\n");
                 Response.Write("\"IsImportant\":" + msg.IsImportant.ToString().ToLower() + "\n");
