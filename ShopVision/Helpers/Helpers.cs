@@ -27,7 +27,7 @@ namespace ShopVision
             }
             return returnMe;
         }
-
+        
         public static string TimeSince(DateTime thisTime)
         {
             TimeSpan duration = DateTime.Now.Subtract(thisTime);

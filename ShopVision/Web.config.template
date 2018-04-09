@@ -20,6 +20,9 @@
   </system.codedom>
 
   <connectionStrings>
+    <!-- List of security groups to allow access - user must be in at least one of these groups to access the site -->
+    <add key="allowed_ad_security_groups" value="" />
+    
     <!-- Credentials for FleetVision database -->
     <add name="FleetVision" connectionString="CONNECTIONSTRINGGOESHERE" providerName="System.Data.SqlClient" />
 

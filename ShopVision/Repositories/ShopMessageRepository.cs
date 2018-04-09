@@ -100,5 +100,76 @@ namespace ShopVision
 
             return returnMe;
         }
+
+        public void Delete(ShopMessage message)
+        {
+            Delete(message.ID);
+        }
+
+        public void Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "DELETE FROM ShopMessages WHERE ID=@MSGID"
+                };
+                sqlCommand.Parameters.AddWithValue("MSGID", id);
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Connection.Close();
+            }
+        }
+
+
+        public void Expire(ShopMessage message)
+        {
+            Expire(message.ID);
+        }
+
+        public void Expire(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "UPDATE ShopMessages SET MsgEnd=@MSGEND WHERE ID=@MSGID"
+                };
+                sqlCommand.Parameters.AddWithValue("MSGID", id);                
+                sqlCommand.Parameters.AddWithValue("MSGEND", DateTime.Now);
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Connection.Close();
+            }
+        }
+
+        public void Add(string MsgSender, string MsgContent, DateTime MsgStart, DateTime MsgEnd, bool IsImportant, string Icon)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "INSERT INTO ShopMessages(MsgSender, MsgContent, MsgStart, MsgEnd, HighImportance, MsgCreated, MsgIcon) VALUES(@MSGSENDER, @MSGCONTENT, @MSGSTART, @MSGEND, @MSGHIGH, @MSGCREATED, @MSGICON);"
+                };
+                sqlCommand.Parameters.AddWithValue("MSGSENDER", MsgSender);
+                sqlCommand.Parameters.AddWithValue("MSGCONTENT", MsgContent);
+                sqlCommand.Parameters.AddWithValue("MSGSTART", MsgStart);
+                sqlCommand.Parameters.AddWithValue("MSGEND", MsgEnd);
+                sqlCommand.Parameters.AddWithValue("MSGHIGH", IsImportant);
+                sqlCommand.Parameters.AddWithValue("MSGCREATED", DateTime.Now);
+                sqlCommand.Parameters.AddWithValue("MSGICON", Icon);
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Connection.Close();
+            }
+
+        }
+        
     }
 }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShopVision
+namespace ShopVision.Manage
 {
 
 
-    public partial class index
+    public partial class ShopMessages
     {
     }
 }

@@ -1,31 +1,50 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ShopVision.index" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/Protected.master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ShopVision.index" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="Static/CSS/buttons.css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>LSKYSD ShopVision</h1>
-    <h2>Screens</h2>
-    <ul>
-        <li><a href="/Screens/BusGarage/">Bus Garage</a></li>
-    </ul>
-    <h2>JSON</h2>    
-    <ul>
-        <li><a href="/JSON/ShopMessages.aspx">Shop Messages</a></li>
-        <li><a href="/JSON/JSONTime.aspx">Time</a></li>
-    </ul>
-    <h3>FleetVision</h3>
-    <ul>
-        <li><a href="/JSON/FleetVision/NewestWorkOrders.aspx">Newest work orders</a></li>
-        <li><a href="/JSON/FleetVision/WorkOrderCounts.aspx">Work order counts</a></li>
-    </ul>
-    <h3>Versatrans</h3>
-    <ul>        
-        <li><a href="/JSON/Versatrans/UpcomingBusInspections.aspx">Upcoming bus inspections</a></li>
-    </ul>
-    <h2>Config</h2>
-</body>
-</html>
+    <div class="tile_container">
+        <div class="tile">
+            <h2>Screens</h2>
+            <ul>
+                <li><a class="orange" href="/Screens/BusGarage/">Bus Garage</a></li>
+            </ul>
+        </div>
+        <div class="tile">
+            <h2>Config</h2>            
+            <ul>
+                <li><a class="green" href="/Manage/">Manage shop messages</a></li>                
+            </ul>
+
+            <h3>SGI Inspections</h3>
+            <ul>
+                <li><a class="green" href="/Manage/">Manage Vehicles</a></li>
+                <li><a class="green" href="/Manage/">Manage SGI bus inspections</a></li>
+            </ul>
+
+            <h2>Reports</h2>
+            <ul>
+                <li><a class="green" href="/Reports/BusInspectionDueDates.aspx">SGI Inspections: Next due dates</a></li>
+                <!--<li><a class="green" href="/Reports/BusInspectionLogs.aspx">SGI Inspections: Full inspection log</a></li>-->
+            </ul>
+        </div>
+        <div class="tile">
+            <h2>JSON</h2> 
+            <h3>General</h3>
+            <ul>
+                <li><a class="blue" href="/JSON/ShopMessages.aspx">Shop Messages</a></li>
+                <li><a class="blue" href="/JSON/JSONTime.aspx">Time</a></li>
+            </ul>
+            <h3>FleetVision</h3>
+            <ul>
+                <li><a class="blue" href="/JSON/FleetVision/NewestWorkOrders.aspx">Newest work orders</a></li>
+                <li><a class="blue" href="/JSON/FleetVision/WorkOrderCounts.aspx">Work order counts</a></li>
+            </ul>
+            <h3>Versatrans</h3>
+            <ul>        
+                <li><a class="blue" href="/JSON/Versatrans/UpcomingBusInspections.aspx">Upcoming bus inspections</a></li>
+            </ul>
+        </div>
+    </div>
+</asp:Content>

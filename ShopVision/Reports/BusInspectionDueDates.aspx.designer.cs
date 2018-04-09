@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShopVision
+namespace ShopVision.Reports
 {
 
 
-    public partial class index
+    public partial class BusInspectionDueDates
     {
     }
 }

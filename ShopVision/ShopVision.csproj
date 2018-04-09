@@ -48,6 +48,8 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,21 +69,46 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="index.aspx" />
     <Content Include="JSON\FleetVision\NewestWorkOrders.aspx" />
     <Content Include="JSON\FleetVision\WorkOrderCounts.aspx" />
     <Content Include="JSON\JSONTime.aspx" />
     <Content Include="JSON\ShopMessages.aspx" />
     <Content Include="JSON\Versatrans\UpcomingBusInspections.aspx" />
+    <Content Include="Login\index.aspx" />
+    <Content Include="Manage\BusInspections.aspx" />
+    <Content Include="Manage\ShopMessages.aspx" />
     <Content Include="Proxy\JSON.aspx" />
+    <Content Include="Reports\BusInspectionDueDates.aspx" />
     <Content Include="Static\CSS\animations.css" />
     <Content Include="Screens\BusGarage\BusGarage.css" />
     <Content Include="Screens\BusGarage\BusGarage.js" />
     <Content Include="Screens\BusGarage\BusGarage_AutoStart.js" />
     <Content Include="Screens\BusGarage\index.html" />
+    <Content Include="Static\CSS\buttons.css" />
     <Content Include="Static\CSS\colors.css" />
-    <Content Include="Static\IMG\WarningBlack.png" />
-    <Content Include="Static\IMG\WarningRed.png" />
-    <Content Include="Static\IMG\WarningWhite.png" />
+    <Content Include="Static\IMG\ICONS\Amb.png" />
+    <Content Include="Static\IMG\ICONS\Bell.png" />
+    <Content Include="Static\IMG\ICONS\BirthdayCake.png" />
+    <Content Include="Static\IMG\ICONS\BusWhite.png" />
+    <Content Include="Static\IMG\ICONS\Clock.png" />
+    <Content Include="Static\IMG\ICONS\Coffee.png" />
+    <Content Include="Static\IMG\ICONS\Envelope.png" />
+    <Content Include="Static\IMG\ICONS\Info.png" />
+    <Content Include="Static\IMG\ICONS\Person.png" />
+    <Content Include="Static\IMG\ICONS\Phone.png" />
+    <Content Include="Static\IMG\ICONS\Snowflake.png" />
+    <Content Include="Static\IMG\ICONS\Star.png" />
+    <Content Include="Static\IMG\ICONS\ThumbsDown.png" />
+    <Content Include="Static\IMG\ICONS\ThumbsUp.png" />
+    <Content Include="Static\IMG\ICONS\Trash.png" />
+    <Content Include="Static\IMG\ICONS\Umbrella.png" />
+    <Content Include="Static\IMG\ICONS\Utensils.png" />
+    <Content Include="Static\IMG\ICONS\WarningBlack.png" />
+    <Content Include="Static\IMG\ICONS\WarningRed.png" />
+    <Content Include="Static\IMG\ICONS\WarningWhite.png" />
+    <Content Include="Static\IMG\ICONS\Wrench.png" />
+    <Content Include="Static\IMG\lock.png" />
     <Content Include="Static\JS\dateandtimehandlers.js" />
     <Content Include="Static\JS\emoticons.js" />
     <Content Include="Static\JS\helpers.js" />
@@ -103,6 +130,7 @@
     <None Include="Web.config.template" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\Authentication.cs" />
     <Compile Include="Helpers\Crypto.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Helpers\Parsers.cs" />
@@ -149,9 +177,32 @@
     <Compile Include="JSON\Versatrans\UpcomingBusInspections.aspx.designer.cs">
       <DependentUpon>UpcomingBusInspections.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\BusInspections.aspx.cs">
+      <DependentUpon>BusInspections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\BusInspections.aspx.designer.cs">
+      <DependentUpon>BusInspections.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\ShopMessages.aspx.cs">
+      <DependentUpon>ShopMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\ShopMessages.aspx.designer.cs">
+      <DependentUpon>ShopMessages.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\FleetVision\FleetVisionVehicle.cs" />
     <Compile Include="Model\FleetVision\FleetVisionWorkOrder.cs" />
+    <Compile Include="Model\LoginSession.cs" />
     <Compile Include="Model\ShopMessage.cs" />
+    <Compile Include="Model\UserPermissionResponse.cs" />
     <Compile Include="Model\Versatrans\VersaTransCertification.cs" />
     <Compile Include="Model\Versatrans\VersaTransEmployee.cs" />
     <Compile Include="Model\Versatrans\VersaTransVehicle.cs" />
@@ -164,8 +215,16 @@
     <Compile Include="Proxy\JSON.aspx.designer.cs">
       <DependentUpon>JSON.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\BusInspectionDueDates.aspx.cs">
+      <DependentUpon>BusInspectionDueDates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\BusInspectionDueDates.aspx.designer.cs">
+      <DependentUpon>BusInspectionDueDates.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\FleetVision\FleetVisionVehicleRepository.cs" />
     <Compile Include="Repositories\FleetVision\FleetVisionWorkOrderRepository.cs" />
+    <Compile Include="Repositories\LoginSessionRepository.cs" />
     <Compile Include="Repositories\ShopMessageRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransCertificationRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransEmployeeRepository.cs" />
@@ -201,9 +260,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="index.aspx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

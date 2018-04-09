@@ -4,6 +4,7 @@ var normalMessagesDisplayed = 0;
 var shopmessagecount = 0; // number of NORMAL importance shop messages. High importance messages are handled elsewhere.
 var highPriorityMessageDivPrefix = "HighPriorityShopMessage_";
 var displayedHighPriorityMessageIDs = []
+var defaultIcon = "default.png";
 
 var workOrderTables = [];
 workOrderTables[0] = "workOrders_1";
@@ -75,7 +76,7 @@ function cyclePages() {
 
         if (skipEmptyPages) {
             // Skip blank work order pages
-            if (currentPage == 1) {
+            if (currentPage === 1) {
                 if (pagesUsed < 2) {
                     console.log("Skipping empty page " + currentPage);
                     currentPage++;
@@ -83,7 +84,7 @@ function cyclePages() {
             }
 
             // Skip workorders page 3 if there are no workorders on it
-            if (currentPage == 2) {
+            if (currentPage === 2) {
                 if (pagesUsed < 3) {
                     console.log("Skipping empty page " + currentPage);
                     currentPage++;
@@ -92,14 +93,14 @@ function cyclePages() {
 
             // Skip SGI page if there are no inspections left this month
 
-            if (currentPage == 3) {
+            if (currentPage === 3) {
                 if (inspectionsThisMonthcount <= 0) {
                     console.log("No inspections this month - skipping page");
                     currentPage++;
                 }
             }
 
-            if (currentPage == 4) {
+            if (currentPage === 4) {
                 if (inspectionsNextMonthCount <= 0) {
                     console.log("No inspections next month - skipping page")
                     currentPage++;
@@ -107,7 +108,7 @@ function cyclePages() {
             }
 
             // Skip messages page if there are no messages to display
-            if (currentPage == 5) {
+            if (currentPage === 5) {
                 if (normalMessagesDisplayed <= 0) {
                     console.log("No shop messages - skipping page");
                     currentPage++;
@@ -201,7 +202,7 @@ function AddToArray(existingarray, newitem) {
 
 function ArrayContains(haystack, needle) {
     for (var x = 0; x < haystack.length; x++) {
-        if (haystack[x] == needle) {
+        if (haystack[x] === needle) {
             return true;
         }
     }
@@ -215,6 +216,11 @@ function updateShopMessages() {
 
     $.getJSON(JSONPath, function (data) {        
         console.log("Loaded ShopMessages");
+
+        var msgIcon = data.Icon;
+        if (msgIcon.length <= 0) {
+            msgIcon = defaultIcon;
+        }
 
         var normalMessagesFound = 0;
         
@@ -251,7 +257,7 @@ function updateShopMessages() {
             var divID = highPriorityMessageDivPrefix + msg.ID;
             if ($("#" + divID).length <= 0) {
                 console.log("Creating new high priority message with id " + msg.ID);
-                $("#HighImportanceShopMessageContainer").prepend("<div class='HighImportanceShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/WarningRed.png' class='HighImportanceShopMessageIcon' /><div id='HighImportanceShopMessageContent'>" + msg.Content + "</div></div></div>");
+                $("#HighImportanceShopMessageContainer").prepend("<div class='HighImportanceShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/ICONS/" + msgIcon + "' class='HighImportanceShopMessageIcon' /><div id='HighImportanceShopMessageContent'>" + msg.Content + "</div></div></div>");
                 // Then fade it in
                 $("#" + divID).fadeIn("slow");
 
