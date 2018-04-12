@@ -27,8 +27,8 @@ namespace ShopVision
                 Start = Parsers.ParseDate(dataReader["MsgStart"].ToString()),
                 End = Parsers.ParseDate(dataReader["MsgEnd"].ToString()),
                 IsImportant = Parsers.ParseBool(dataReader["HighImportance"].ToString()),
-                Created = Parsers.ParseDate(dataReader["MsgCreated"].ToString())
-
+                Created = Parsers.ParseDate(dataReader["MsgCreated"].ToString()),
+                Icon = dataReader["MsgIcon"].ToString().Trim()
             };
         }
 
@@ -147,8 +147,10 @@ namespace ShopVision
             }
         }
 
-        public void Add(string MsgSender, string MsgContent, DateTime MsgStart, DateTime MsgEnd, bool IsImportant, string Icon)
+        public ShopMessage Add(string MsgSender, string MsgContent, DateTime MsgStart, DateTime MsgEnd, bool IsImportant, string Icon)
         {
+            DateTime createdTime = DateTime.Now;
+
             using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
             {
                 SqlCommand sqlCommand = new SqlCommand
@@ -162,12 +164,59 @@ namespace ShopVision
                 sqlCommand.Parameters.AddWithValue("MSGSTART", MsgStart);
                 sqlCommand.Parameters.AddWithValue("MSGEND", MsgEnd);
                 sqlCommand.Parameters.AddWithValue("MSGHIGH", IsImportant);
-                sqlCommand.Parameters.AddWithValue("MSGCREATED", DateTime.Now);
+                sqlCommand.Parameters.AddWithValue("MSGCREATED", createdTime);
                 sqlCommand.Parameters.AddWithValue("MSGICON", Icon);
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Connection.Close();
             }
+
+            // Now get the SQL ID of the message we just added
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT * FROM ShopMessages WHERE MsgSender=@MSGSENDER AND MsgContent=@MSGCONTENT AND MsgStart=@MSGSTART AND MsgEnd=@MSGEND AND HighImportance=@MSGHIGH AND MsgCreated=@MSGCREATED AND MsgIcon=@MSGICON"
+                };
+                sqlCommand.Parameters.AddWithValue("MSGSENDER", MsgSender);
+                sqlCommand.Parameters.AddWithValue("MSGCONTENT", MsgContent);
+                sqlCommand.Parameters.AddWithValue("MSGSTART", MsgStart);
+                sqlCommand.Parameters.AddWithValue("MSGEND", MsgEnd);
+                sqlCommand.Parameters.AddWithValue("MSGHIGH", IsImportant);
+                sqlCommand.Parameters.AddWithValue("MSGCREATED", createdTime);
+                sqlCommand.Parameters.AddWithValue("MSGICON", Icon);
+                sqlCommand.Connection.Open();
+
+                SqlDataReader dbDataReader = sqlCommand.ExecuteReader();
+
+                if (dbDataReader.HasRows)
+                {
+                    while (dbDataReader.Read())
+                    {
+                        ShopMessage msg = dataReaderToShopMessage(dbDataReader);
+
+                        if (msg != null)
+                        {
+                            return msg;
+                        }
+                    }
+                }
+
+                sqlCommand.Connection.Close();
+            }
+
+            return new ShopMessage()
+            {
+                Sender = MsgSender,
+                Content = MsgContent,
+                Start = MsgStart,
+                End = MsgEnd,
+                IsImportant = IsImportant,
+                Created = DateTime.Now,
+                Icon = Icon
+            };
 
         }
         

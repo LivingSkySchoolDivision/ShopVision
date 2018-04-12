@@ -9,6 +9,8 @@ namespace ShopVision
 {
     public class LoginSessionRepository
     {
+        private static TimeSpan sessionDuration = new TimeSpan(12, 0, 0, 0);
+
         private LoginSession dataReaderToLoginSession(SqlDataReader dataReader)
         {
             return new LoginSession()
@@ -182,7 +184,6 @@ namespace ShopVision
             // If logging in during the work day, make a session last 8 hours
             // If logging in after hours, make the session only last 2 hours
 
-            TimeSpan sessionDuration = new TimeSpan(0, 30, 0);
 
             // Create a session in the database 
             // Also while we are querying the database, clear out expired sessions that are lingering, and clear any existing sessions for

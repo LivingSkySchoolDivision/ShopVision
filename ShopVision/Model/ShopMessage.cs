@@ -14,5 +14,6 @@ namespace ShopVision
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public bool IsImportant { get; set; }
+        public string Icon { get; set; }
     }
 }

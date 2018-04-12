@@ -13,7 +13,7 @@ namespace ShopVision.Login
         {
             HttpCookie newCookie = new HttpCookie(Settings.CookieName);
             newCookie.Value = sessionID;
-            newCookie.Expires = DateTime.Now.AddHours(8);
+            newCookie.Expires = DateTime.Now.AddHours(12);
             newCookie.Domain = Settings.GetServerName(Request);
             newCookie.Secure = true;
             Response.Cookies.Add(newCookie);

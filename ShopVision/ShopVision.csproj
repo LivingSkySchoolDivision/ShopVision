@@ -106,6 +106,7 @@
     <Content Include="Static\IMG\ICONS\Utensils.png" />
     <Content Include="Static\IMG\ICONS\WarningBlack.png" />
     <Content Include="Static\IMG\ICONS\WarningRed.png" />
+    <Content Include="Static\IMG\ICONS\default.png" />
     <Content Include="Static\IMG\ICONS\WarningWhite.png" />
     <Content Include="Static\IMG\ICONS\Wrench.png" />
     <Content Include="Static\IMG\lock.png" />
@@ -118,7 +119,8 @@
     <Content Include="Template\Protected.master" />
     <Content Include="Template\Unprotected.master" />
     <Content Include="Template\TVScreen.Master" />
-    <None Include="Properties\PublishProfiles\Dashboard Server.pubxml" />
+    <None Include="Properties\PublishProfiles\LIVE - ShopVision on Dashboard server.pubxml" />
+    <None Include="Properties\PublishProfiles\TEST - ShopVision on Dashboard server.pubxml" />
     <None Include="Web.config.Debug.template">
       <DependentUpon>Web.config.template</DependentUpon>
     </None>
@@ -200,9 +202,11 @@
     </Compile>
     <Compile Include="Model\FleetVision\FleetVisionVehicle.cs" />
     <Compile Include="Model\FleetVision\FleetVisionWorkOrder.cs" />
+    <Compile Include="Model\VehicleInspection.cs" />
     <Compile Include="Model\LoginSession.cs" />
     <Compile Include="Model\ShopMessage.cs" />
     <Compile Include="Model\UserPermissionResponse.cs" />
+    <Compile Include="Model\Vehicle.cs" />
     <Compile Include="Model\Versatrans\VersaTransCertification.cs" />
     <Compile Include="Model\Versatrans\VersaTransEmployee.cs" />
     <Compile Include="Model\Versatrans\VersaTransVehicle.cs" />
@@ -226,6 +230,8 @@
     <Compile Include="Repositories\FleetVision\FleetVisionWorkOrderRepository.cs" />
     <Compile Include="Repositories\LoginSessionRepository.cs" />
     <Compile Include="Repositories\ShopMessageRepository.cs" />
+    <Compile Include="Repositories\VehicleInspectionRepository.cs" />
+    <Compile Include="Repositories\VehicleRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransCertificationRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransEmployeeRepository.cs" />
     <Compile Include="Repositories\Versatrans\VersaTransVehicleRepository.cs" />

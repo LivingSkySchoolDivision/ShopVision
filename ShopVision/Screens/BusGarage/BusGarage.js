@@ -217,10 +217,7 @@ function updateShopMessages() {
     $.getJSON(JSONPath, function (data) {        
         console.log("Loaded ShopMessages");
 
-        var msgIcon = data.Icon;
-        if (msgIcon.length <= 0) {
-            msgIcon = defaultIcon;
-        }
+        var msgIcon = defaultIcon;
 
         var normalMessagesFound = 0;
         

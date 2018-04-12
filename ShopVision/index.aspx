@@ -14,9 +14,9 @@
         <div class="tile">
             <h2>Config</h2>            
             <ul>
-                <li><a class="green" href="/Manage/">Manage shop messages</a></li>                
+                <li><a class="green" href="/Manage/ShopMessages.aspx">Manage shop messages</a></li>                
             </ul>
-
+            <!--
             <h3>SGI Inspections</h3>
             <ul>
                 <li><a class="green" href="/Manage/">Manage Vehicles</a></li>
@@ -26,8 +26,9 @@
             <h2>Reports</h2>
             <ul>
                 <li><a class="green" href="/Reports/BusInspectionDueDates.aspx">SGI Inspections: Next due dates</a></li>
-                <!--<li><a class="green" href="/Reports/BusInspectionLogs.aspx">SGI Inspections: Full inspection log</a></li>-->
+                <li><a class="green" href="/Reports/BusInspectionLogs.aspx">SGI Inspections: Full inspection log</a></li>
             </ul>
+                -->
         </div>
         <div class="tile">
             <h2>JSON</h2> 
