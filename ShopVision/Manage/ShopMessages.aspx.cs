@@ -13,9 +13,16 @@ namespace ShopVision.Manage
         {
             TableRow returnMe = new TableRow();
 
+            string iconPath = Settings.IconURL + "default.png";
+            if (!string.IsNullOrEmpty(msg.Icon))
+            {
+                iconPath = Settings.IconURL + msg.Icon;
+            }
+
+            returnMe.Cells.Add(new TableCell() { Text = "<img src=\"" + iconPath + "\" style=\"width: 100px;background-color: black; border-radius: 5px;\">" });
+            returnMe.Cells.Add(new TableCell() { Text = msg.Content });
             returnMe.Cells.Add(new TableCell() { Text = msg.Start.ToString() });
             returnMe.Cells.Add(new TableCell() { Text = msg.Sender });
-            returnMe.Cells.Add(new TableCell() { Text = msg.IsImportant ? "[High importance] " + msg.Content : msg.Content });
             returnMe.Cells.Add(new TableCell() { Text = msg.End.ToString() });
             returnMe.Cells.Add(new TableCell() { Text = "<a href=\"?Remove=" + msg.ID + "\">Remove</a>" });
 
@@ -26,9 +33,10 @@ namespace ShopVision.Manage
         {
             TableHeaderRow returnMe = new TableHeaderRow();
 
+            returnMe.Cells.Add(new TableHeaderCell() { Text = "Icon" });
+            returnMe.Cells.Add(new TableHeaderCell() { Text = "Content" });
             returnMe.Cells.Add(new TableHeaderCell() { Text = "Created" });
             returnMe.Cells.Add(new TableHeaderCell() { Text = "Author" });
-            returnMe.Cells.Add(new TableHeaderCell() { Text = "Content" });
             returnMe.Cells.Add(new TableHeaderCell() { Text = "Expires" });
             returnMe.Cells.Add(new TableHeaderCell() { Text = " " });
 
@@ -60,6 +68,19 @@ namespace ShopVision.Manage
             {
                 tblActiveMessages.Rows.Add(addMessageTableRow(msg));
             }
+
+            if (!IsPostBack)
+            {
+                chkIsHighPriority.Checked = true;
+
+                IconRepository iconRepo = new IconRepository();
+                drpIcon.Items.Clear();
+                drpIcon.Items.Add(new ListItem() { Text = "default.png", Value = "default.png" });
+                foreach (string icon in iconRepo.GetAll())
+                {
+                    drpIcon.Items.Add(new ListItem() { Text = icon, Value = icon });
+                }
+            }
         }
 
 
@@ -70,7 +91,7 @@ namespace ShopVision.Manage
             int expireHours = Parsers.ParseInt(drpMessageExpiry.SelectedValue);
             DateTime messageExpires = DateTime.Now.AddHours(expireHours);
             bool isImportant = chkIsHighPriority.Checked;
-            string icon = "";
+            string icon = drpIcon.SelectedValue;
 
             if (icon.Length <= 0)
             {
@@ -91,6 +112,12 @@ namespace ShopVision.Manage
                     tblActiveMessages.Rows.Add(addMessageTableRow(msg));
                 }
             }
+        }
+
+        protected void drpIcon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set the preview thumbnail to the selected one
+            imgThumbnail.ImageUrl = Settings.IconURL + drpIcon.SelectedValue;
         }
     }
 }

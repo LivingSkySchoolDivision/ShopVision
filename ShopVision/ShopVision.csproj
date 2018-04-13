@@ -87,6 +87,7 @@
     <Content Include="Screens\BusGarage\index.html" />
     <Content Include="Static\CSS\buttons.css" />
     <Content Include="Static\CSS\colors.css" />
+    <Content Include="Static\CSS\standard.css" />
     <Content Include="Static\IMG\ICONS\Amb.png" />
     <Content Include="Static\IMG\ICONS\Bell.png" />
     <Content Include="Static\IMG\ICONS\BirthdayCake.png" />
@@ -110,6 +111,7 @@
     <Content Include="Static\IMG\ICONS\WarningWhite.png" />
     <Content Include="Static\IMG\ICONS\Wrench.png" />
     <Content Include="Static\IMG\lock.png" />
+    <Content Include="Static\IMG\trans_background.png" />
     <Content Include="Static\JS\dateandtimehandlers.js" />
     <Content Include="Static\JS\emoticons.js" />
     <Content Include="Static\JS\helpers.js" />
@@ -228,6 +230,7 @@
     </Compile>
     <Compile Include="Repositories\FleetVision\FleetVisionVehicleRepository.cs" />
     <Compile Include="Repositories\FleetVision\FleetVisionWorkOrderRepository.cs" />
+    <Compile Include="Repositories\IconRepository.cs" />
     <Compile Include="Repositories\LoginSessionRepository.cs" />
     <Compile Include="Repositories\ShopMessageRepository.cs" />
     <Compile Include="Repositories\VehicleInspectionRepository.cs" />

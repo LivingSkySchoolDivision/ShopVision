@@ -414,17 +414,36 @@ body {
 
 #ShopMessageContainer {
 }
-
 .ShopMessage {
     display: block;
     margin-bottom: 25px;
     font-size: 30pt;
+    min-height: 175px;
+    display: flex;
+    align-items: center;
 }
 
 .ShopMessageInfo {
     font-weight: bold;
+    font-size: 16pt;
+    font-style: italic;
+    text-align: left;
 }
 
 .ShopMessageContent {
 
+}
+
+.HighImportanceShopMessageContent {
+    display: flex;
+    align-items: center;
+
+}
+
+.normal_shopmessage_icon {
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
 }

@@ -68,12 +68,13 @@ pages[5] = "text_page";
 
 function cyclePages() {
     var skipEmptyPages = true;
-    console.log("Pages used: " + pagesUsed);
-    console.log("Fading out page: " + pages[currentPage]);
+    var forcePage = -1;
+
+    //forcePage = 5;
+        
+    console.log("Pages used: " + pagesUsed);    
     $("#" + pages[currentPage]).fadeOut('500', function () {
-
         currentPage++;
-
         if (skipEmptyPages) {
             // Skip blank work order pages
             if (currentPage === 1) {
@@ -120,8 +121,16 @@ function cyclePages() {
             currentPage = 0;
         }
 
-        $("#" + pages[currentPage]).fadeIn();
+        // If we're forcing a specific page, override whatever it would be
+        if (forcePage >= 0) {
+            currentPage = forcePage;
+        }
+                
         console.log("Now showing page: " + pages[currentPage]);
+
+        $("#" + pages[currentPage]).fadeIn();
+
+        // Update the name in the bottom right corner
         $("#page_name").html("[" + pages[currentPage] + "]");
     });
 }
@@ -230,9 +239,16 @@ function updateShopMessages() {
         $.each(data.Normal, function (index, msg) {
             console.log("Found normal priority message with ID " + msg.ID);
             normalMessagesFound++;
+
+            if (msg.Icon.length > 0) {
+                msgIcon = msg.Icon;
+            } else {
+                msgIcon = "default.png";
+            }
+
             //ShopMessageContainer
             if ($("#ShopMessageContainer").length !== 0) {
-                $("#ShopMessageContainer").append("<div class=\"ShopMessage\"><div class=\"ShopMessageInfo\">" + msg.Sender + " (" + msg.CreatedFriendly + ")" + "</div><div class=\"ShopMessageContent\">" + msg.Content + "</div></div>");
+                $("#ShopMessageContainer").append("<div class=\"ShopMessage\"><img src=\"/static/IMG/Icons/" + msgIcon + "\" class=\"normal_shopmessage_icon\"><div class=\"ShopMessageContent\">" + msg.Content + "</div></div>");
             }
 
             //$("#sgi_insepections_list").append("<div class='sgi_inspection_overdue " + font_style + "'>" + cert.Vehicle + "</div>");
@@ -250,11 +266,18 @@ function updateShopMessages() {
         $.each(data.High, function (index, msg) {
             console.log("Found high priority message with ID " + msg.ID);
 
+            if (msg.Icon.length > 0) {
+                msgIcon = msg.Icon;
+            } else {
+                msgIcon = "default.png";
+            }
+            
+
             // If a div for this message doesn't already exist, create it
             var divID = highPriorityMessageDivPrefix + msg.ID;
             if ($("#" + divID).length <= 0) {
                 console.log("Creating new high priority message with id " + msg.ID);
-                $("#HighImportanceShopMessageContainer").prepend("<div class='HighImportanceShopMessage' style='display:none;' id='" + divID + "'><div><img src='/Static/IMG/ICONS/" + msgIcon + "' class='HighImportanceShopMessageIcon' /><div id='HighImportanceShopMessageContent'>" + msg.Content + "</div></div></div>");
+                $("#HighImportanceShopMessageContainer").prepend("<div class='HighImportanceShopMessage' style='display:none;' id='" + divID + "'><div class=\"HighImportanceShopMessageContent\"><img src='/Static/IMG/ICONS/" + msgIcon + "' class='HighImportanceShopMessageIcon' /><div id='HighImportanceShopMessageContent'>" + msg.Content + "</div></div></div>");
                 // Then fade it in
                 $("#" + divID).fadeIn("slow");
 

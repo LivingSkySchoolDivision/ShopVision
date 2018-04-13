@@ -35,6 +35,7 @@ namespace ShopVision.JSON
                 Response.Write("{");
                 Response.Write("\"ID\":\"" + msg.ID + "\",\n");
                 Response.Write("\"Sender\":\"" + Helpers.SanitizeForJSON(msg.Sender) + "\",\n");
+                Response.Write("\"Icon\":\"" + msg.Icon + "\",\n");
                 Response.Write("\"Content\":\"" + Helpers.SanitizeForJSON(msg.Content) + "\",\n");
                 Response.Write("\"Created\":\"" + msg.Created + "\",\n");
                 Response.Write("\"CreatedFriendly\":\"" + Helpers.TimeSince(msg.Created) + "\",\n");
@@ -61,6 +62,7 @@ namespace ShopVision.JSON
                 Response.Write("{");
                 Response.Write("\"ID\":\"" + msg.ID + "\",\n");
                 Response.Write("\"Sender\":\"" + Helpers.SanitizeForJSON(msg.Sender) + "\",\n");
+                Response.Write("\"Icon\":\"" + msg.Icon + "\",\n");
                 Response.Write("\"Content\":\"" + Helpers.SanitizeForJSON(msg.Content) + "\",\n");
                 Response.Write("\"Created\":\"" + msg.Created + "\",\n");
                 Response.Write("\"CreatedFriendly\":\"" + Helpers.TimeSince(msg.Created) + "\",\n");

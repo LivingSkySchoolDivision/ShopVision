@@ -4,9 +4,8 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title></title>    
+    <link rel="stylesheet" href="../Static/CSS/standard.css" />
     <style type="text/css">
         body {
             margin: 0;
@@ -50,6 +49,7 @@
             padding: 20px;
         }
     </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="user_info_bar">

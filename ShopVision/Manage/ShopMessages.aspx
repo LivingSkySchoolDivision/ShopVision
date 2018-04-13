@@ -1,8 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Template/Protected.master" AutoEventWireup="true" CodeBehind="ShopMessages.aspx.cs" Inherits="ShopVision.Manage.ShopMessages" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .table_container {
+
+        }
+
+        .table_container th {
+            text-align: left;
+            border-bottom: 1px solid #555555;
+        }
+
+        .thumbnail_editor {
+            width: 200px;
+            height: 200px;
+            background: url("/Static/IMG/trans_background.png") #000000;
+            border: 1px solid black;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+    <div class="fixed_width_page_container">
+        <h2>Shop Messages</h2>
+        <p>Use this page to create messages that are displayed on the display in the bus garage.</p>
+        <p><b>Normal priority messages</b> are displayed on their own page, which gets cycled through with any existing page. Normal priority messages may not get noticed right away.</p>
+        <p><b>High priority messages</b> are designed to be very obvious, and will obscure parts of the screen. </p>
+        <br /><br />
         <asp:Table runat="server">
             <asp:TableRow>
                 <asp:TableCell VerticalAlign="Top">Message content</asp:TableCell>
@@ -35,7 +57,9 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell VerticalAlign="Top">Icon</asp:TableCell>
-                <asp:TableCell></asp:TableCell>
+                <asp:TableCell><asp:DropDownList ID="drpIcon" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpIcon_SelectedIndexChanged" ></asp:DropDownList><br />
+                <asp:Image ID="imgThumbnail" ImageUrl="/Static/IMG/ICONS/default.png" CssClass="thumbnail_editor" runat="server" /><br />
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell></asp:TableCell>
@@ -46,8 +70,9 @@
 
         </asp:Table>
     </div>
-    <div>
+    <div class="table_container">
+        <br /><br />
         <h2>Active messages</h2>
-        <asp:Table ID="tblActiveMessages" runat="server"></asp:Table>
+        <asp:Table ID="tblActiveMessages" runat="server" Width="100%"></asp:Table>
     </div>    
 </asp:Content>

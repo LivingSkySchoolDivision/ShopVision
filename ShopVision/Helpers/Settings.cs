@@ -11,6 +11,8 @@ namespace ShopVision
         public static string LoginURL { get { return "/Login/index.aspx"; } }
         public static string IndexURL { get { return "/index.aspx"; } }
 
+        public static string IconURL { get { return "/Static/IMG/ICONS/"; } }
+
         public static string ApplicationRoot { get { return HttpContext.Current.Request.ApplicationPath; } }
         public static string CookieName { get { return "LSKYSDSHOPVISION"; } }
         public static string Domain { get { return "LSKYSD.CA"; } }

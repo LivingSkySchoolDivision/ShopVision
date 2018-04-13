@@ -30,22 +30,26 @@
             </ul>
                 -->
         </div>
-        <div class="tile">
-            <h2>JSON</h2> 
-            <h3>General</h3>
-            <ul>
-                <li><a class="blue" href="/JSON/ShopMessages.aspx">Shop Messages</a></li>
-                <li><a class="blue" href="/JSON/JSONTime.aspx">Time</a></li>
-            </ul>
-            <h3>FleetVision</h3>
-            <ul>
-                <li><a class="blue" href="/JSON/FleetVision/NewestWorkOrders.aspx">Newest work orders</a></li>
-                <li><a class="blue" href="/JSON/FleetVision/WorkOrderCounts.aspx">Work order counts</a></li>
-            </ul>
-            <h3>Versatrans</h3>
-            <ul>        
-                <li><a class="blue" href="/JSON/Versatrans/UpcomingBusInspections.aspx">Upcoming bus inspections</a></li>
-            </ul>
-        </div>
+        <asp:Literal ID="litAdminControls" runat="server" Visible="false">
+            <div class="tile">
+                <h1>Admin functions</h1>
+                <h2>JSON</h2> 
+                <h3>General</h3>
+                <ul>
+                    <li><a class="blue" href="/JSON/ShopMessages.aspx">Shop Messages</a></li>
+                    <li><a class="blue" href="/JSON/JSONTime.aspx">Time</a></li>
+                </ul>
+                <h3>FleetVision</h3>
+                <ul>
+                    <li><a class="blue" href="/JSON/FleetVision/NewestWorkOrders.aspx">Newest work orders</a></li>
+                    <li><a class="blue" href="/JSON/FleetVision/WorkOrderCounts.aspx">Work order counts</a></li>
+                </ul>
+                <h3>Versatrans</h3>
+                <ul>        
+                    <li><a class="blue" href="/JSON/Versatrans/UpcomingBusInspections.aspx">Upcoming bus inspections</a></li>
+                </ul>
+            </div>
+        </asp:Literal>
+        
     </div>
 </asp:Content>
