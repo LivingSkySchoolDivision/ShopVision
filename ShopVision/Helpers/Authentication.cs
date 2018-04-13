@@ -83,11 +83,12 @@ namespace ShopVision
         public static UserPermissionResponse GetUserPermissions(string domain, string username)
         {
             bool canLogin = false;
+            bool isAdmin = false;
 
             List<string> usersGroupMembership = GetUsersGroups(domain, username);
 
-            // Check if the user can even log in first
-            foreach (string group in Settings.SecurityGroupsAllowed)
+            // Check if this user is in an allowed AD group
+            foreach (string group in Settings.Groups_AllowedAccess)
             {
                 if (usersGroupMembership.Contains(group))
                 {
@@ -95,19 +96,20 @@ namespace ShopVision
                 }
             }
 
-            // If the user can't login at this point, don't even bother checking any further
-            if (!canLogin)
+            // Check if this user is in an administrator AD group
+            foreach (string group in Settings.Groups_AdminAccess)
             {
-                return new UserPermissionResponse()
+                if (usersGroupMembership.Contains(group))
                 {
-                    CanUserUseSystem = false
-                };
+                    canLogin = true;
+                    isAdmin = true;
+                }
             }
-
-
+            
             return new UserPermissionResponse()
             {
-                CanUserUseSystem = canLogin
+                CanUserUseSystem = canLogin,
+                IsAdministrator = isAdmin
             };
         }
     }

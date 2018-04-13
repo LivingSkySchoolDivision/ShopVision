@@ -34,13 +34,28 @@ namespace ShopVision
             return Request.ServerVariables["SERVER_NAME"].ToString().Trim();
         }
 
-        public static List<string> SecurityGroupsAllowed
+        public static List<string> Groups_AllowedAccess
         {
             get
             {
                 try
                 {
                     return System.Configuration.ConfigurationManager.AppSettings["allowed_ad_security_groups"].ToString().Split(';').ToList().ConvertAll(g => g.ToLower());
+                }
+                catch
+                {
+                    return new List<string>();
+                }
+            }
+        }
+
+        public static List<string> Groups_AdminAccess
+        {
+            get
+            {
+                try
+                {
+                    return System.Configuration.ConfigurationManager.AppSettings["admin_ad_security_groups"].ToString().Split(';').ToList().ConvertAll(g => g.ToLower());
                 }
                 catch
                 {

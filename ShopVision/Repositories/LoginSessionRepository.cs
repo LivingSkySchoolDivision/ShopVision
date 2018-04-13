@@ -20,7 +20,8 @@ namespace ShopVision
                 Thumbprint = dataReader["thumbprint"].ToString(),
                 UserAgent = dataReader["useragent"].ToString(),
                 SessionStarts = DateTime.Parse(dataReader["sessionstarts"].ToString()),
-                SessionEnds = DateTime.Parse(dataReader["sessionends"].ToString())
+                SessionEnds = DateTime.Parse(dataReader["sessionends"].ToString()),
+                IsAdmin = Parsers.ParseBool(dataReader["isAdmin"].ToString())
             };
         }
 
@@ -176,7 +177,7 @@ namespace ShopVision
         /// <param name="remoteIP"></param>
         /// <param name="useragent"></param>
         /// <returns></returns>
-        public string CreateSession(string username, string remoteIP, string useragent)
+        public string CreateSession(string username, string remoteIP, string useragent, bool isAdmin)
         {
             // Generate a session ID
             string newSessionID = CreateSessionID(username + remoteIP + useragent);
@@ -194,13 +195,14 @@ namespace ShopVision
                 {
                     sqlCommand.Connection = connection;
                     sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = "DELETE FROM sessions WHERE sessionends < {fn NOW()};DELETE FROM sessions WHERE username=@USERNAME;INSERT INTO sessions(thumbprint,username,ip,useragent,sessionstarts,sessionends) VALUES(@ID, @USERNAME, @IP, @USERAGENT, @SESSIONSTART, @SESSIONEND);";
+                    sqlCommand.CommandText = "DELETE FROM sessions WHERE sessionends < {fn NOW()};DELETE FROM sessions WHERE username=@USERNAME;INSERT INTO sessions(thumbprint,username,ip,useragent,sessionstarts,sessionends,isadmin) VALUES(@ID, @USERNAME, @IP, @USERAGENT, @SESSIONSTART, @SESSIONEND, @ISADMIN);";
                     sqlCommand.Parameters.AddWithValue("@ID", newSessionID);
                     sqlCommand.Parameters.AddWithValue("@USERNAME", username);
                     sqlCommand.Parameters.AddWithValue("@IP", remoteIP);
                     sqlCommand.Parameters.AddWithValue("@USERAGENT", useragent);
                     sqlCommand.Parameters.AddWithValue("@SESSIONSTART", DateTime.Now);
                     sqlCommand.Parameters.AddWithValue("@SESSIONEND", DateTime.Now.Add(sessionDuration));
+                    sqlCommand.Parameters.AddWithValue("@ISADMIN", isAdmin);
 
                     sqlCommand.Connection.Open();
                     sqlCommand.ExecuteNonQuery();

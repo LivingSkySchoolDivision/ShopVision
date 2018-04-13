@@ -8,5 +8,6 @@ namespace ShopVision
     public class UserPermissionResponse
     {
         public bool CanUserUseSystem { get; set; }
+        public bool IsAdministrator { get; set; }
     }
 }

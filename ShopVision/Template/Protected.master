@@ -7,10 +7,60 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .user_info_bar {
+            font-family: Arial;
+            font-size: 10pt;
+            width: 100%;
+            background-color: #FF9200;
+            border-bottom: 2px solid #BF6D00;
+            padding: 3px;
+            color: black;
+            display: grid;
+            grid-template-columns: auto auto 15px;
+            margin-bottom: 0;
+        }
+
+        .user_info_bar a {
+            color: blue;
+        }
+
+        .uib_rightaligned {            
+            text-align: right;
+        }
+
+        .uib_username { 
+            display: inline;
+        }
+
+        .uib_logout {
+            display: inline;
+        }
+
+        .uib_mainmenulink {
+            display: inline;
+        }
+
+        #page_container {
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="user_info_bar">
+        <div class="uib_mainmenulink"><a href="/">Main menu</a></div>
+        <div class="uib_rightaligned">
+            <div class="uib_username">Currently logged in as <b><asp:Label ID="lblUsername" runat="server" Text=""></asp:Label></b></div>        
+            <div class="uib_logout"><a href="/?logout=y">LOGOUT</a></div>            
+        </div>
+    </div>
     <form id="form1" runat="server">
-        <div>
+        <div id="page_container">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

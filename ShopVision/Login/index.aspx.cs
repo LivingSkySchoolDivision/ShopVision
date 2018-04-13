@@ -78,7 +78,7 @@ namespace ShopVision.Login
                     {
                         // Attempt to create a session for the user
                         LoginSessionRepository loginSessionRepo = new LoginSessionRepository();
-                        string newSessionID = loginSessionRepo.CreateSession(username, Request.ServerVariables["REMOTE_ADDR"], Request.ServerVariables["HTTP_USER_AGENT"]);
+                        string newSessionID = loginSessionRepo.CreateSession(username, Request.ServerVariables["REMOTE_ADDR"], Request.ServerVariables["HTTP_USER_AGENT"], permissions.IsAdministrator);
 
                         if (newSessionID != string.Empty)
                         {

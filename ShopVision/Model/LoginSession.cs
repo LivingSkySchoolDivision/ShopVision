@@ -14,6 +14,7 @@ namespace ShopVision
         
         public DateTime SessionStarts { get; set; }
         public DateTime SessionEnds { get; set; }
+        public bool IsAdmin { get; set; }
 
     }
 }

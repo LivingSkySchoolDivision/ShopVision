@@ -76,6 +76,7 @@ namespace ShopVision.Template
             else
             {
                 Response.Write("<!-- Logged in: " + currentUser.Username + " -->");
+                lblUsername.Text = currentUser.Username;
             }
 
         }
