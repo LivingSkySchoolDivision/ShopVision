@@ -71,3 +71,13 @@
     background: -moz-linear-gradient(top, #00adee, #0078a5);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
 }
+
+.red {
+    color: white;
+    border: solid 1px #5b0b09;
+    background: #0095cd;
+    background: -webkit-gradient(linear, left top, left bottom, from(#df1d18), to(#770f0b));
+    background: -moz-linear-gradient(top, #df1d18, #770f0b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='##df1d18', endColorstr='##770f0b');
+}
+

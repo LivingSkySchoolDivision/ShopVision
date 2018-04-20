@@ -77,7 +77,10 @@
     <Content Include="JSON\Versatrans\UpcomingBusInspections.aspx" />
     <Content Include="Login\index.aspx" />
     <Content Include="Manage\BusInspections.aspx" />
+    <Content Include="Manage\QuickSGIInspection.aspx" />
     <Content Include="Manage\ShopMessages.aspx" />
+    <Content Include="Manage\VehicleInfo.aspx" />
+    <Content Include="Manage\Vehicles.aspx" />
     <Content Include="Proxy\JSON.aspx" />
     <Content Include="Reports\BusInspectionDueDates.aspx" />
     <Content Include="Static\CSS\animations.css" />
@@ -195,12 +198,33 @@
     <Compile Include="Manage\BusInspections.aspx.designer.cs">
       <DependentUpon>BusInspections.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Manage\QuickSGIInspection.aspx.cs">
+      <DependentUpon>QuickSGIInspection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\QuickSGIInspection.aspx.designer.cs">
+      <DependentUpon>QuickSGIInspection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Manage\ShopMessages.aspx.cs">
       <DependentUpon>ShopMessages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Manage\ShopMessages.aspx.designer.cs">
       <DependentUpon>ShopMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\VehicleInfo.aspx.cs">
+      <DependentUpon>VehicleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\VehicleInfo.aspx.designer.cs">
+      <DependentUpon>VehicleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Vehicles.aspx.cs">
+      <DependentUpon>Vehicles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Vehicles.aspx.designer.cs">
+      <DependentUpon>Vehicles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\FleetVision\FleetVisionVehicle.cs" />
     <Compile Include="Model\FleetVision\FleetVisionWorkOrder.cs" />

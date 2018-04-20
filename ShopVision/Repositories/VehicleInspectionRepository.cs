@@ -60,5 +60,32 @@ namespace ShopVision
 
             return returnMe;
         }
+
+        public void Add(int VehicleID, string Description, DateTime EffectiveDate, DateTime ExpiryDate)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "INSERT INTO VehicleInspections(VehicleID, InspectionDescription, InspectionEffectiveDate, InspectionExpiryDate) VALUES(@VID, @DESC, @EFFECTIVE, @EXPIRY);"
+                };
+
+                sqlCommand.Parameters.AddWithValue("VID", VehicleID);
+                sqlCommand.Parameters.AddWithValue("DESC", Description);
+                sqlCommand.Parameters.AddWithValue("EFFECTIVE", EffectiveDate);
+                sqlCommand.Parameters.AddWithValue("EXPIRY", ExpiryDate);
+
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Connection.Close();
+            }
+        }
+
+        public void Add(VehicleInspection inspection)
+        {
+            Add(inspection.VehicleID, inspection.Description, inspection.EffectiveDate, inspection.ExpiryDate);
+        }
     }
 }

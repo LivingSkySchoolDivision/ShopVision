@@ -12,23 +12,20 @@
             </ul>
         </div>
         <div class="tile">
-            <h2>Config</h2>            
+            <h2>Shop Messages</h2>            
             <ul>
                 <li><a class="green" href="/Manage/ShopMessages.aspx">Manage shop messages</a></li>                
-            </ul>
-            <!--
-            <h3>SGI Inspections</h3>
+            </ul>            
+            <h2>SGI Inspections</h2>
             <ul>
-                <li><a class="green" href="/Manage/">Manage Vehicles</a></li>
-                <li><a class="green" href="/Manage/">Manage SGI bus inspections</a></li>
+                <li><a class="green" href="/Manage/Vehicles.aspx">Vehicles</a></li>                
+                <li><a class="red" href="/Manage/QuickSGIInspection.aspx">Quick add an SGI bus inspection</a></li>
             </ul>
-
-            <h2>Reports</h2>
+            <h3>Reports</h3>
             <ul>
                 <li><a class="green" href="/Reports/BusInspectionDueDates.aspx">SGI Inspections: Next due dates</a></li>
                 <li><a class="green" href="/Reports/BusInspectionLogs.aspx">SGI Inspections: Full inspection log</a></li>
-            </ul>
-                -->
+            </ul>                
         </div>
         <asp:Literal ID="litAdminControls" runat="server" Visible="false">
             <div class="tile">
