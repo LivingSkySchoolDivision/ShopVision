@@ -9,6 +9,7 @@ namespace ShopVision
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public bool IsInService { get; set; }
         public string Plate { get; set; }
         public List<string> PreviousPlates { get; set; }

@@ -54,5 +54,26 @@ namespace ShopVision.Manage
                 tblInactiveVehicles.Rows.Add(addVehicleRow(v));
             }
         }
+        public void RedirectToEditPage(int id)
+        {
+            Response.Clear();
+            Response.ClearContent();
+            Response.ClearHeaders();
+            //Response.Redirect(Request.Url.GetLeftPart(UriPartial.Authority) + HttpContext.Current.Request.ApplicationPath + Settings.LoginURL);
+            Response.Redirect("EditVehicle.aspx?vid=" + id);
+            Response.OutputStream.Flush();
+            Response.OutputStream.Close();
+            Response.End();
+        }
+
+        protected void btnAddVehicle_Click(object sender, EventArgs e)
+        {
+            VehicleRepository vr = new VehicleRepository();
+            Vehicle v = vr.Add();
+            if (v != null)
+            {
+                RedirectToEditPage(v.ID);
+            }
+        }
     }
 }

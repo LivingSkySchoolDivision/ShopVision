@@ -61,7 +61,7 @@ namespace ShopVision
             return returnMe;
         }
 
-        public void Add(int VehicleID, string Description, DateTime EffectiveDate, DateTime ExpiryDate)
+        public VehicleInspection Add(int VehicleID, string Description, DateTime EffectiveDate, DateTime ExpiryDate)
         {
             using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
             {
@@ -81,11 +81,53 @@ namespace ShopVision
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Connection.Close();
             }
+
+            // Now retreive the object we just added so we can return it
+            using (SqlConnection connection = new SqlConnection(Settings.DBConnectionString_ShopVision))
+            {
+                SqlCommand sqlCommand = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = "SELECT * FROM VehicleInspections WHERE VehicleID=@VID AND InspectionDescription=@DESC AND InspectionEffectiveDate=@EFFECTIVE AND InspectionExpiryDate=@EXPIRY;"
+                };
+
+                sqlCommand.Parameters.AddWithValue("VID", VehicleID);
+                sqlCommand.Parameters.AddWithValue("DESC", Description);
+                sqlCommand.Parameters.AddWithValue("EFFECTIVE", EffectiveDate);
+                sqlCommand.Parameters.AddWithValue("EXPIRY", ExpiryDate);
+
+                sqlCommand.Connection.Open();
+                SqlDataReader dbDataReader = sqlCommand.ExecuteReader();
+
+                if (dbDataReader.HasRows)
+                {
+                    while (dbDataReader.Read())
+                    {
+                        VehicleInspection inspection = dataReaderToInspection(dbDataReader);
+                        if (inspection != null)
+                        {
+                            return inspection;
+                        }
+                    }
+                }
+                sqlCommand.Connection.Close();
+            }
+
+            // If we're unable to find it in the database, return what we were given (with an invalid ID number)
+            return new VehicleInspection()
+            {
+                VehicleID = VehicleID,
+                Description = Description,
+                EffectiveDate = EffectiveDate,
+                ExpiryDate = ExpiryDate,
+                ID = -1
+            };
         }
 
-        public void Add(VehicleInspection inspection)
+        public VehicleInspection Add(VehicleInspection inspection)
         {
-            Add(inspection.VehicleID, inspection.Description, inspection.EffectiveDate, inspection.ExpiryDate);
+            return Add(inspection.VehicleID, inspection.Description, inspection.EffectiveDate, inspection.ExpiryDate);
         }
     }
 }

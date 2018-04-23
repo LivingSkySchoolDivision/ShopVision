@@ -10,7 +10,7 @@
 namespace ShopVision.Manage {
     
     
-    public partial class VehicleInfo {
+    public partial class EditVehicle {
         
         /// <summary>
         /// txtVehicleID control.
@@ -22,15 +22,6 @@ namespace ShopVision.Manage {
         protected global::System.Web.UI.WebControls.HiddenField txtVehicleID;
         
         /// <summary>
-        /// lblEditLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEditLink;
-        
-        /// <summary>
         /// lblVehicleName control.
         /// </summary>
         /// <remarks>
@@ -40,93 +31,66 @@ namespace ShopVision.Manage {
         protected global::System.Web.UI.WebControls.Label lblVehicleName;
         
         /// <summary>
-        /// lblDescription control.
+        /// txtVehicleName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtVehicleName;
         
         /// <summary>
-        /// lblVehicleVIN control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicleVIN;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
-        /// lblVehiclePlate control.
+        /// txtVehicleVIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehiclePlate;
+        protected global::System.Web.UI.WebControls.TextBox txtVehicleVIN;
         
         /// <summary>
-        /// lblVehicleActive control.
+        /// txtVehiclePlate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicleActive;
+        protected global::System.Web.UI.WebControls.TextBox txtVehiclePlate;
         
         /// <summary>
-        /// lblInspectionDue control.
+        /// chkActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInspectionDue;
+        protected global::System.Web.UI.WebControls.CheckBox chkActive;
         
         /// <summary>
-        /// tblInspections control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblInspections;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// txtNewInspectionDescription control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewInspectionDescription;
-        
-        /// <summary>
-        /// txtEffectiveDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEffectiveDate;
-        
-        /// <summary>
-        /// txtExpiryDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpiryDate;
-        
-        /// <summary>
-        /// btnAddInspection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddInspection;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }
