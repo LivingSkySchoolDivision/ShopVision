@@ -21,11 +21,13 @@
                 <li><a class="green" href="/Manage/Vehicles.aspx">Vehicles</a></li>                
                 <li><a class="red" href="/Manage/QuickSGIInspection.aspx">Quick add an SGI bus inspection</a></li>
             </ul>
+            <!--
             <h3>Reports</h3>
             <ul>
                 <li><a class="green" href="/Reports/BusInspectionDueDates.aspx">SGI Inspections: Next due dates</a></li>
                 <li><a class="green" href="/Reports/BusInspectionLogs.aspx">SGI Inspections: Full inspection log</a></li>
             </ul>                
+                -->
         </div>
         <asp:Literal ID="litAdminControls" runat="server" Visible="false">
             <div class="tile">
