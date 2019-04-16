@@ -46,6 +46,8 @@ namespace ShopVision.JSON.Versatrans
             DateTime startOfNextMonth = endOfThisMonth.AddDays(1);
             DateTime endOfNextMonth = new DateTime(startOfNextMonth.Year, startOfNextMonth.Month, DateTime.DaysInMonth(startOfNextMonth.Year, startOfNextMonth.Month));
 
+            
+
             foreach (VersatransCertification cert in allBusInspections.Keys)
             {
                 // Overdue
@@ -169,6 +171,33 @@ namespace ShopVision.JSON.Versatrans
                     Response.Write("}");
 
                     if (!(displaycount + 1 >= inspectionsDueNextMonth.Count))
+                    {
+                        Response.Write(",");
+                    }
+                    displaycount++;
+                }
+
+            }
+
+
+            Response.Write("],\n");
+            Response.Write("\"All\": [\n");
+            displaycount = 0;
+
+            foreach (VersatransCertification cert in allBusInspections.Keys)
+            {
+
+                VersaTransEmployee driver = allBusInspections[cert];
+                foreach (VersaTransVehicle vehicle in driver.Vehicles)
+                {
+                    Response.Write("\n{");
+                    Response.Write("\"Vehicle\" : \"" + vehicle.VehicleNumber + "\",");
+                    Response.Write("\"Driver\" : \"" + driver.DisplayName + "\",");
+                    Response.Write("\"Expires\" : \"" + cert.Expires.ToShortDateString() + "\",");
+                    Response.Write("\"Completed\" : \"" + cert.Completed.ToShortDateString() + "\"");
+                    Response.Write("}");
+
+                    if (!(displaycount + 1 >= allBusInspections.Count))
                     {
                         Response.Write(",");
                     }
