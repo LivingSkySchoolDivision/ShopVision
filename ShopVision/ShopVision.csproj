@@ -84,6 +84,7 @@
     <Content Include="Manage\Vehicles.aspx" />
     <Content Include="Proxy\JSON.aspx" />
     <Content Include="Reports\BusInspectionDueDates.aspx" />
+    <Content Include="Screens\BusGarage\weather.js" />
     <Content Include="Static\CSS\animations.css" />
     <Content Include="Screens\BusGarage\BusGarage.css" />
     <Content Include="Screens\BusGarage\BusGarage.js" />

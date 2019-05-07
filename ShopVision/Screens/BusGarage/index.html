@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="../../static/css/animations.css" />
     <link rel="stylesheet" href="BusGarage.css" />
 
-    <script type="text/javascript" src="../../Static/JS/jquery-1.10.2.js"></script>    
+    <script type="text/javascript" src="../../Static/JS/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../../Static/JS/dateandtimehandlers.js"></script>
     <script type="text/javascript" src="../../Static/JS/helpers.js"></script>
     <script type="text/javascript" src="../../Static/JS/weather.js"></script>
     <script type="text/javascript" src="BusGarage.js"></script>
+    <script type="text/javascript" src="weather.js"></script>
     <script type="text/javascript" src="BusGarage_AutoStart.js"></script>
-        
+
 </head>
 <body id="body_transport">
     <!-- colored bars for sizing on a 1080p TV screen -->
@@ -35,20 +36,7 @@
                     </td>
 
                     <td id="weather_tile" class="titlebar" id="titlebar_3">
-                        <div id="current_weather">
-                            <table style="width: 100%;" border=0 cellpadding=0 cellspacing=3 align="Center" id="weather_table">
-                                <tr>
-                                    <td width="50%" align="center">
-                                        <div id="weather_temp"></div>
-                                    </td>
-                                    <td width="50%" align="center" valign="top" id="weather_detail">
-                                        <div id="weather_detail_icon"></div>
-                                        <div id="weather_detail_description"></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
+                        <div id="current_weather"></div>
                     </td>
                 </tr>
             </table>

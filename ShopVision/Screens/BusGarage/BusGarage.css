@@ -132,6 +132,7 @@ body {
 
 
 #weather_detail_icon {
+    display: none;
 }
 
 #current_date {
@@ -155,17 +156,68 @@ body {
 }
 
 #weather_temp {
-    font-size: 32pt;
-    font-weight: bold;
+    font-size: 30px;
+}
+#weather_container {
+    border: 0;
+    padding: 5px;
+    display: block;
+}
+
+#weather_row_1 {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#weather_row_2 {
+    display: block;
+    width: 100%;
+}
+
+#weather_row_3 {
+    display: block;
+    width: 100%;
+}
+
+#weather_conditions_container {
+    vertical-align: middle;
+    text-align: center;
+    width: 64px;
+    display: inline-block;
+}
+
+#weather_temperature_container {
+    width: 175px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#weather_details_container {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 5px;
 }
 
 #weather_detail_description {
-    font-size: 12pt;
-    font-weight: bold;
-    padding-left: 5px;
-    padding-right: 5px;
     text-align: center;
-    vertical-align: middle;
+    font-weight: bold;
+}
+
+#weather_temp {
+    font-size: 28pt;
+}
+
+#weather_detail_icon {
+    display: inline;
+}
+
+.weather_detail {
+    font-size: 8pt;
+    display: inline;
 }
 
 #Chart_TicketsByMonth {

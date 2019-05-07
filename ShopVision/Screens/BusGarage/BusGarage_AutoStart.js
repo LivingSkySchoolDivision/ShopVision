@@ -8,11 +8,16 @@ $(document).ready(function () {
     initPages();
     updateSGIInspections();
     updateShopMessages();
+    InitializeWeather();
     // Hide the mouse cursor
     $('body').css('cursor', 'none');
 
 });
 
+function InitializeWeather() {
+    console.log("Initializing weather");
+    $("#current_weather").html(insertWeatherWidgetHTML());
+}
 
 /* ******************************************** */
 /* * Interval stuff                           * */
@@ -43,7 +48,7 @@ setInterval(function () {
 /* Update weather */
 setInterval(function () {
     updateWeather();
-}, 60000);
+}, 600000);
 
 /* Update the date and time displays */
 setInterval(function () {
