@@ -16,7 +16,7 @@ function insertWeatherWidgetHTML() {
 
 function updateWeather(JSONPath) {
     $.ajax({
-        url: "https://lssdweatherapi.azurewebsites.net/api/GetWeather/sk-34",
+        url: "https://dashboard-api.lskysd.ca/weather/sk-34",
         dataType: "json",
         success: function (parsed_json) {
             console.log(parsed_json);
