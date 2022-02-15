@@ -23,6 +23,8 @@ namespace ShopVision.JSON.FleetVision
             List<FleetVisionWorkOrder> wo_CreatedLast30Days = repository.GetWorkOrdersCreatedDuring(DateTime.Today.AddDays(-30), DateTime.Now);
 
             Response.Clear();
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            Response.AppendHeader("Access-Control-Allow-Methods", "*");
             Response.ContentEncoding = Encoding.UTF8;
             Response.ContentType = "application/json; charset=utf-8";
             Response.Write("{\n");

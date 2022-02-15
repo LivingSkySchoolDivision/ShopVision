@@ -19,6 +19,8 @@ namespace ShopVision.JSON
             List<ShopMessage> HighPriority = activeMessages.Where(x => x.IsImportant == true).ToList();
 
             Response.Clear();
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            Response.AppendHeader("Access-Control-Allow-Methods", "*");
             Response.ContentEncoding = Encoding.UTF8;
             Response.ContentType = "application/json; charset=utf-8";
 

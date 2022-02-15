@@ -97,6 +97,8 @@ namespace ShopVision.JSON.Versatrans
 
 
             Response.Clear();
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            Response.AppendHeader("Access-Control-Allow-Methods", "*");
             Response.ContentEncoding = Encoding.UTF8;
             Response.ContentType = "application/json; charset=utf-8";
             Response.Write("{\n");

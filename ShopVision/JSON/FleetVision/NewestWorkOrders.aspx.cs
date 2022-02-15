@@ -20,6 +20,8 @@ namespace ShopVision.JSON.FleetVision
             workOrders = repository.GetRecentIncomplete(50).Where(wo => wo.Vehicle != null).Where(wo => wo.OutDateTime == DateTime.MinValue).Where(wo => wo.InDateTime <= DateTime.Today.AddDays(1).AddMinutes(-1)).OrderBy(wo => wo.PrioritySortOrder).ThenBy(wo => wo.VehicleNumberForSorting).ToList();
 
             Response.Clear();
+            Response.AppendHeader("Access-Control-Allow-Origin", "*");
+            Response.AppendHeader("Access-Control-Allow-Methods", "*");
             Response.ContentEncoding = Encoding.UTF8;
             Response.ContentType = "application/json; charset=utf-8";
             Response.Write("{\n");
