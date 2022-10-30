@@ -112,8 +112,8 @@ namespace ShopVision.JSON.Versatrans
                 foreach (VersaTransVehicle vehicle in driver.Vehicles)
                 {
                     Response.Write("\n{");
-                    Response.Write("\"Vehicle\" : \"" + vehicle.VehicleNumber + "\",");
-                    Response.Write("\"Driver\" : \"" + driver.DisplayName + "\",");
+                    Response.Write("\"Vehicle\" : \"" + Helpers.SanitizeForJSON(vehicle.VehicleNumber) + "\",");
+                    Response.Write("\"Driver\" : \"" + Helpers.SanitizeForJSON(driver.DisplayName) + "\",");
                     Response.Write("\"Expires\" : \"" + cert.Expires.ToShortDateString() + "\",");
                     Response.Write("\"Completed\" : \"" + cert.Completed.ToShortDateString() + "\"");
                     Response.Write("}");
@@ -138,8 +138,8 @@ namespace ShopVision.JSON.Versatrans
                 foreach (VersaTransVehicle vehicle in driver.Vehicles)
                 {
                     Response.Write("\n{");
-                    Response.Write("\"Vehicle\" : \"" + vehicle.VehicleNumber + "\",");
-                    Response.Write("\"Driver\" : \"" + driver.DisplayName + "\",");
+                    Response.Write("\"Vehicle\" : \"" + Helpers.SanitizeForJSON(vehicle.VehicleNumber) + "\",");
+                    Response.Write("\"Driver\" : \"" + Helpers.SanitizeForJSON(driver.DisplayName) + "\",");
                     Response.Write("\"Expires\" : \"" + cert.Expires.ToShortDateString() + "\",");
                     Response.Write("\"Completed\" : \"" + cert.Completed.ToShortDateString() + "\"");
                     Response.Write("}");
@@ -166,8 +166,8 @@ namespace ShopVision.JSON.Versatrans
                 foreach (VersaTransVehicle vehicle in driver.Vehicles)
                 {
                     Response.Write("\n{");
-                    Response.Write("\"Vehicle\" : \"" + vehicle.VehicleNumber + "\",");
-                    Response.Write("\"Driver\" : \"" + driver.DisplayName + "\",");
+                    Response.Write("\"Vehicle\" : \"" + Helpers.SanitizeForJSON(vehicle.VehicleNumber) + "\",");
+                    Response.Write("\"Driver\" : \"" + Helpers.SanitizeForJSON(driver.DisplayName) + "\",");
                     Response.Write("\"Expires\" : \"" + cert.Expires.ToShortDateString() + "\",");
                     Response.Write("\"Completed\" : \"" + cert.Completed.ToShortDateString() + "\"");
                     Response.Write("}");
@@ -193,8 +193,8 @@ namespace ShopVision.JSON.Versatrans
                 foreach (VersaTransVehicle vehicle in driver.Vehicles)
                 {
                     Response.Write("\n{");
-                    Response.Write("\"Vehicle\" : \"" + vehicle.VehicleNumber + "\",");
-                    Response.Write("\"Driver\" : \"" + driver.DisplayName + "\",");
+                    Response.Write("\"Vehicle\" : \"" + Helpers.SanitizeForJSON(vehicle.VehicleNumber) + "\",");
+                    Response.Write("\"Driver\" : \"" + Helpers.SanitizeForJSON(driver.DisplayName) + "\",");
                     Response.Write("\"Expires\" : \"" + cert.Expires.ToShortDateString() + "\",");
                     Response.Write("\"Completed\" : \"" + cert.Completed.ToShortDateString() + "\"");
                     Response.Write("}");
